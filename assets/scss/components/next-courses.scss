@@ -1,0 +1,27 @@
+.comp--next-courses {
+  height: auto;
+  max-height: 70vh;
+  width: 100%;
+  background: url(~assets/img/next-courses-bg.jpg) center center no-repeat;
+  background-size: cover;
+  padding: 64px 0 32px 0;
+  overflow: hidden;
+
+  h3 {
+    color: $white;
+  }
+
+  .swiper-area {
+    width: 400px;
+  }
+
+  .swiper-container {
+    overflow: visible;
+  }
+
+  .swiper-slide-active {
+    .comp--course-card {
+      @extend .active;
+    }
+  }
+}

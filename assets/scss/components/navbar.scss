@@ -1,0 +1,14 @@
+.comp--navbar {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 0 56px;
+  background: $white;
+  border-bottom: 1px solid $border;
+
+  &.home {
+    background: transparent;
+    border-bottom: none;
+  }
+}

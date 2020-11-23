@@ -1,0 +1,32 @@
+.comp--course-card {
+  background: $white;
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin-top: 28px;
+  height: auto;
+  transition: 0.3s all ease-out;
+
+  .badge {
+    margin-bottom: 16px;
+  }
+  h5 {
+    margin-bottom: 24px;
+  }
+  .button-area {
+    opacity: 0;
+    height: 0;
+    transition: 0.3s all ease-out;
+  }
+
+  &:hover,
+  &.active {
+    height: auto;
+    margin-top: 0px;
+
+    .button-area {
+      opacity: 1;
+      height: auto;
+      transition: 0.3s all ease-out;
+    }
+  }
+}

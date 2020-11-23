@@ -1,0 +1,135 @@
+.comp--search-class {
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 65px;
+  width: 100%;
+  padding: 6px 6px 6px 24px;
+
+  .grid { 
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 30% 45% 5%;
+    grid-template-rows: auto;
+
+    #catch-phrase,
+    #chapter,
+    #cursus,
+    #search-button {
+      align-self: center;
+    }
+
+    #catch-phrase,
+    #chapter {
+      border-right: 1px solid $border;
+      /*
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 28px;
+        width: 1px;
+        background: red;
+        z-index: 9999;
+      }
+      */
+    }
+
+    #chapter,
+    #cursus {
+      padding-left: 24px;
+
+      select {
+        font-family: Raleway-Regular;
+        font-size: 16px;
+        line-height: 16px;
+        color: #273053;
+        height: 22px;
+        padding: 6px 0 0 0;
+        border: none;
+      }
+    }
+
+    #catch-phrase {
+      font-family: Raleway-Bold;
+      font-size: 16px;
+      color: $black;
+      grid-column: 1;
+      height: 100%;
+
+      span {
+        line-height: 36px;
+      }
+    }
+
+    #chapter {
+      grid-column: 2;
+    }
+
+    #cursus {
+      grid-column: 3;
+    }
+
+    #search-button {
+      grid-column: 4;
+      text-align: right;
+
+      button {
+        width: 36px;
+        height: 36px;
+        color: $white;
+        background: $primary;
+        border: none;
+        border-radius: 100%;
+      }
+    }
+
+    label {
+      display: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &.big {
+    padding: 8px 8px 8px 24px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.16);
+
+    .grid {
+      grid-template-columns: 20% 30% 43% 7%;
+    }
+
+    label {
+      display: block;
+      font-family: Raleway-Bold;
+      font-size: 13px;
+      color: #273053;
+    }
+
+    #chapter select,
+    #cursus select {
+      font-size: 18px;
+      line-height: 20px;
+      padding: 0;
+    }
+
+    #catch-phrase {
+      color: $gray;
+
+      span {
+        line-height: 46px;
+      }
+    }
+
+    #search-button {
+      button {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  
+
+}
