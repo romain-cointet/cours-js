@@ -4,11 +4,22 @@
   position: fixed;
   top: 0;
   padding: 0 56px;
-  background: $white;
+  background:  rgba(255,255,255, 1);
   border-bottom: 1px solid $border;
+  z-index: 9999;
+  transition: 0.2s background ease-out;
+
+  .comp--search-course {
+    margin-top: -120px;
+    transition: 0.3s margin ease-out;
+
+    &.show {
+      margin-top: 0px;
+    }
+  }
 
   &.home {
-    background: transparent;
+    background: rgba(255,255,255, 0);
     border-bottom: none;
   }
 }

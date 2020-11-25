@@ -19,16 +19,13 @@
   padding: 10px 20px;
   font-family: 'Raleway-ExtraBold';
   font-size: 17px;
+  background: $white;
+  border-color: $border;
+  color: $black;
 
   &.btn-primary {
     background: $primary;
     border-color: $primary;
     color: $white;
-  }
-
-  &.btn-secondary {
-    background: $white;
-    border-color: $border;
-    color: $black;
   }
 }

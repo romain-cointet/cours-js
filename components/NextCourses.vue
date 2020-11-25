@@ -14,16 +14,15 @@
       </b-row>
 
       <div class="swiper-area mt-4">
-        <swiper ref="nextCoursesSwiper" :options="swiperOptions">
-          <swiper-slide v-for="course in courses" :key="course.id">
-            <CourseCard :chapter="chapter" :course="course" />
-          </swiper-slide>
-        </swiper>
+        <div v-swiper:mySwiper="swiperOptions" ref="nextCoursesSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="course in courses" :key="course.id">
+              <CourseCard :chapter="chapter" :course="course" />
+            </div>
+          </div>
+        </div>
       </div>
-
-      
     </b-container>
-    
   </div>
 </template>
 
@@ -89,16 +88,14 @@
     },
     mounted() {
       let swiperWrapper = document.querySelector('.swiper-wrapper');
-      swiperWrapper.style.transform = 'translate3d(0px, 0px, 0px)';
+      //swiperWrapper.style.transform = 'translate3d(0px, 0px, 0px)';
     },
     methods: {
       previousCourse() {
         this.swiper.slidePrev();
-        console.log('previsous', this.swiper.activeIndex)
       },
       nextCourse() {
         this.swiper.slideNext();
-        console.log('next', this.swiper.activeIndex)
       }
     }
   }

@@ -43,6 +43,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    // https://github.com/Llang8/nuxt-highlightjs
+    // https://highlightjs.org/
+    ['nuxt-highlightjs', {
+      style: 'obsidian'
+    }]
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

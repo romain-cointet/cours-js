@@ -1,0 +1,53 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Avant propos et syntaxe",
+    "resume": "Client / Serveur, Javaquoi ?, DOM ou TOM ?, HTeuMeuLeuh ?"
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Langages clients et langages serveurs"
+      },
+      {
+        "type": "h4",
+        "value": "Dans le monde merveilleux du web, il y a…"
+      },
+      {
+        "type": "p",
+        "value": "… Deux types de langages:"
+      },
+      {
+        "type": "ul",
+        "value": "<li><b>Les langages clients</b></li><li><b>Les langages serveurs</b></li>"
+      },
+      {
+        "type": "p",
+        "value": "Mais c’est quoi la différence ? Pourquoi n’y a-t-il pas qu’un seul langage ? Et pourquoi on est obligé de coder d’abord ? On va tout d’abord essayer de comprendre le fonctionnement d’un site web."
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "",
+        "alt": ""
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "p",
+      "value": "Lorsqu’un visiteur se rend sur une adresse url (exemple: https://google.fr), l’ordinateur du visiteur demande en réalité à communiquer avec le serveur qui contient le site de Google pour qu’il lui affiche la page. Ce serveur a une adresse, on appelle ça une adresse IP. <br>Exemple : "
+    },
+    {
+      "type": "code",
+      "language": "",
+      "fileName": "",
+      "value": "192.238.0.23"
+    }
+  ]
+}

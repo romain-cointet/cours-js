@@ -34,17 +34,52 @@ h4 {
   margin-bottom: 24px;
 }
 
-p {
+h5 {
+  font-family: Raleway-ExtraBold;
+  font-size: 20px;
+  color: $black;
+}
+
+p, li {
   font-family: Raleway-Regular;
   font-size: 20px;
   color: $black;
+}
+
+p {
   line-height: 28px;
   margin-bottom: 24px;
 }
 
+ul {
+  margin-bottom: 24px;
+}
+
+b {
+  font-family: Raleway-SemiBold;
+}
+
+.my-editor {
+  background: #2d2d2d;
+  color: #ccc;
+
+  font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 5px;
+}
+.prism-editor__textarea:focus {
+  outline: none;
+}
+.prism-editor__editor {
+  color: $white;
+}
+
 @import 'components/navbar.scss';
-@import 'components/search-class.scss';
+@import 'components/search-course.scss';
 @import 'components/hero.scss';
-@import 'components/resume.scss';
+@import 'components/intro.scss';
+@import 'components/content.scss';
 @import 'components/course-card.scss';
 @import 'components/next-courses.scss';
+@import 'components/code-highlighter.scss';

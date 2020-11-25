@@ -8,7 +8,7 @@
       </b-col>
     </b-row>
 
-    <b-row class="button-area">
+    <b-row class="button-area mt-4">
       <b-col>
         <nuxt-link to="" class="btn btn-primary">Commencer ce cours</nuxt-link>
       </b-col>
