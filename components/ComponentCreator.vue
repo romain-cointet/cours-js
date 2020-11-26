@@ -9,7 +9,7 @@
           <nuxt-link :to="c.src" class="btn btn-primary cta">{{ c.value }}</nuxt-link>
         </div>
 
-        <component v-else :is="c.type" v-html="c.value"></component>
+        <component v-else :is="c.type" v-html="c.value" :class="c.class?c.class:''"></component>
       </div>
     </div>
   </div>

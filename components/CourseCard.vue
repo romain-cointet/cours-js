@@ -2,15 +2,15 @@
   <div class="comp--course-card">
     <b-row>
       <b-col>
-        <b-badge>{{ chapter.title }}</b-badge><br>
-        <h5>{{ course.title }}</h5>
+        <b-badge>{{ chapter.text }}</b-badge><br>
+        <h5>{{ course.text }}</h5>
         <p>{{ course.resume }}</p>
       </b-col>
     </b-row>
 
     <b-row class="button-area mt-4">
       <b-col>
-        <nuxt-link to="" class="btn btn-primary">Commencer ce cours</nuxt-link>
+        <nuxt-link :to="courseUrl" class="btn btn-primary">Commencer ce cours</nuxt-link>
       </b-col>
     </b-row>
   </div>
@@ -24,6 +24,12 @@
       },
       chapter: {
         type: Object
+      }
+    },
+    computed: {
+      courseUrl () {
+        let url = "/" + this.chapter.value + "/" + this.course.value;
+        return url;
       }
     }
   }

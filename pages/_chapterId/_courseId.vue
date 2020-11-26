@@ -6,16 +6,20 @@
         :title="course.head.title"
         :subtitle="course.head.resume" />
 
-      <b-container>
+      <b-container class="mb-8">
         <Intro :content="course.intro" />
         <Content :content="course.content" />
       </b-container>
+
+      <NextCourses id="next-courses" :courseRead="true"/>
 
     </article>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex';
+
   export default {
     head() {
       return {
@@ -32,6 +36,13 @@
       let response = await this.$axios.get(url);
       let course = response.data;
       this.course = course;
+    },
+    computed: {
+      ...mapState(['chapterSelected', 'courseSelected'])
+    },
+    mounted() {
+      this.$store.dispatch('loadCurrentChapter', this.$route.params.chapterId)
+      this.$store.dispatch('loadCurrentCourse', this.$route.params.courseId)
     }
   }
 </script>

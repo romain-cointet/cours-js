@@ -11,7 +11,7 @@
         <Intro :content="content.intro" id="intro"/>
       </b-container>
       
-      <NextCourses :chapter="{id:0, title:'Javascript'}" :currentCourse="0" id="next-courses"/>
+      <NextCourses id="next-courses"/>
 
       <b-container>
         <Intro :content="content.comeBack" />

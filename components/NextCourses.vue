@@ -14,28 +14,24 @@
       </b-row>
 
       <div class="swiper-area mt-4">
-        <div v-swiper:mySwiper="swiperOptions" ref="nextCoursesSwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="course in courses" :key="course.id">
-              <CourseCard :chapter="chapter" :course="course" />
-            </div>
-          </div>
-        </div>
+        <swiper :mySwiper="swiperOptions" ref="nextCoursesSwiper">
+            <swiper-slide  v-for="course in courses[chapterSelected]" :key="course.id">
+              <CourseCard :chapter="chapters[chapterSelected]" :course="course" />
+            </swiper-slide>
+        </swiper>
       </div>
     </b-container>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex';
 
   export default {
     props: {
-      chapter: {
-        type: Object,
-      },
-      currentCourse: {
-        type: Number,
-        default: 0
+      courseRead: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -50,45 +46,19 @@
           },
           slidesPerView: 1,
           spaceBetween: 30,
-          //centeredSlides: true,
-          //grabCursor: true,
-          //loop: true,
-          //loopFillGroupWithBlank: true,
-          // Some Swiper option/callback...
         },
-        courses: [
-          {
-            id: 0,
-            title: 'Avant propos',
-            resume: 'Client / Serveur, Javaquoi ?, DOM ou TOM ?, HTeuMeuLeuh ?'
-          },
-          {
-            id: 1,
-            title: 'Syntaxe et bases de l\'algorithmie',
-            resume: 'eiozj ziofj ezif '
-          },
-          {
-            id: 2,
-            title: 'ccc',
-            resume: 'eiozj ziofj ezif '
-          },
-          {
-            id: 3,
-            title: 'ddd',
-            resume: 'eiozj ziofj ezif '
-          }
-        ]
-        
+        swiper: null,
       }
     },
     computed: {
-      swiper() {
-        return this.$refs.nextCoursesSwiper.$swiper
-      }
+      ...mapState(['chapters', 'courses', 'chapterSelected', 'courseSelected'])
     },
     mounted() {
-      let swiperWrapper = document.querySelector('.swiper-wrapper');
-      //swiperWrapper.style.transform = 'translate3d(0px, 0px, 0px)';
+      this.swiper = this.$refs.nextCoursesSwiper.$swiper;
+      if(this.courseRead) {
+        let nextSlide = parseInt(this.$route.params.courseId) + 1;
+        this.swiper.slideTo(nextSlide);
+      }
     },
     methods: {
       previousCourse() {

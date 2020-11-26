@@ -38,70 +38,24 @@ export const mutations = {
 
 
 export const actions = {
-  /*
-  async loadAllVideos({commit}) {
-    // Appel axios
-    let response = await this.$axios.get('/videos')
-
-    let videos = response.data.data;
-    videos.forEach(v => {
-      v.attributes.tags_ids = v.relationships.tags.data.map(t => t.id);
-    })
-
-    let tags = response.data.included;
-    tags.forEach(t => {
-      t.attributes.id = t.id;
-    })
-
-    commit('SET_VIDEOS', videos.map(v => v.attributes)) 
-    commit('SET_TAGS', tags.map(t => t.attributes)) 
-  }
-  */
-
   // Charger les chapitres et les cours
   async loadCursus({commit}) {
-    //let response = await this.$axios.get('http://localhost:3000/static/data/cursus.js');
-    //console.log('RESPONSE', response);
-    
-    let chapters = [
-      { value: 0, text: 'Javascript' },
-      { value: 1, text: 'Bootstrap & JQuery' },
-      { value: 2, text: 'Javascript avancé' },
-      { value: 3, text: 'Vue.js' },
-      { value: 4, text: 'Nuxt.js' }
-    ];
-    let courses = [
-      [
-        { value: 0, text: 'Avant propos et dialecte' },
-        { value: 1, text: 'Syntaxe et bases de l\'algorithmie' },
-        { value: 2, text: 'Navigateur web et définition du DOM' },
-      ],
-      [
-        { value: 0, text: 'Bootstrap' },
-        { value: 1, text: 'JQuery' },
-      ],
-      [
-        { value: 0, text: 'L\'asynchrone' },
-        { value: 1, text: 'Les services web' },
-        { value: 2, text: 'Optimisation du code' },
-      ],
-      [
-        { value: 0, text: 'Qu\'est-ce qu\'un framework ?' },
-        { value: 1, text: 'Les Single Page Application' },
-        { value: 2, text: 'Installation de Vue-cli' },
-      ],
-      [
-        { value: 0, text: 'Hello Nuxt' },
-      ]
-    ];
+    let url = 'data/cursus.json';
+    let response = await this.$axios.get(url);
+    let chapters = response.data.chapters;
+    let courses = response.data.courses;
     
     commit('SET_CHAPTERS', chapters)
     commit('SET_COURSES', courses)
   },
+  // Charger le chapitre en cours
   async loadCurrentChapter({commit}, chapterId) {
     commit('SET_CURRENT_CHAPTER', chapterId)
   },
+  // Charger le cours en cours
   async loadCurrentCourse({commit}, courseId) {
     commit('SET_CURRENT_COURSE', courseId)
   }
+
+  // TO DO: au clic sur un cours, changer le select search course
 }

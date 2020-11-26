@@ -1,5 +1,9 @@
 {
   "head": {
+    "chapter": {
+      "id": "",
+      "value": ""
+    },
     "title": "Welcode to the jungle;",
     "resume": "« L’Amazonie n’est pas aussi vaste que le Javascript. Et utiliser Git, c’est un peu comme savoir planter des arbres… Alors si tu maîtrises les deux, on peut dire que t’es le sauveur de la planète non ? »"
   },

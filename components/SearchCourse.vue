@@ -54,20 +54,20 @@
       }
     },
     computed: {
-      //...mapState(['tags', 'videos'])
       ...mapState({
         chapterOptions: 'chapters',
         courseOptions: 'courses',
+        chapterSelected: 'chapterSelected',
+        courseSelected: 'courseSelected'
       }),
       chapterSelected: {
         get: function () {
           return this.$store.state.chapterSelected;
         },
+        
         set: function (chapterId) {
           this.chapterChoosen = chapterId;
           this.courseChoosen = 0;
-          this.$store.dispatch('loadCurrentChapter', chapterId)
-          this.$store.dispatch('loadCurrentCourse', this.courseChoosen)
         }
       },
       courseSelected: {
@@ -76,7 +76,6 @@
         },
         set: function (courseId) {
           this.courseChoosen = courseId;
-          this.$store.dispatch('loadCurrentCourse', courseId)
         }
       }
     }

@@ -1,0 +1,126 @@
+{
+  "chapters" : [
+    { 
+      "value": 0, 
+      "text": "Javascript" 
+    },
+    { 
+      "value": 1, 
+      "text": "Bootstrap & JQuery" 
+    },
+    { 
+      "value": 2, 
+      "text": "Javascript avancé" 
+    },
+    { 
+      "value": 3, 
+      "text": "Vue.js" 
+    },
+    { 
+      "value": 4, 
+      "text": "Nuxt.js" 
+    }
+  ],
+  "courses" : [
+    [
+      { 
+        "value": 0, 
+        "text": "Avant propos et dialecte", 
+        "resume": "Client / Serveur, Javaquoi ?, HTeuMeuLeuh ?" 
+      },
+      { 
+        "value": 1, 
+        "text": "Le DOM et la structure d'une page web",
+        "resume": "Quand la technologie s'inspire de la nature"
+      },
+      { 
+        "value": 2, 
+        "text": "Syntaxe et bases de l'algorithmie",
+        "resume": "Ça y est, on va coder... Préparez vos dolipranes..."
+      },
+      { 
+        "value": 3, 
+        "text": "Fonctions, tableaux et chaînes de caratères",
+        "resume": ""
+      },
+      { 
+        "value": 4, 
+        "text": "Apparté sur Git",
+        "resume": "Les arbres, toujours les arbres..."
+      },
+      { 
+        "value": 5, 
+        "text": "Objets et Classes",
+        "resume": "Initiation à la Programmation Orientée Objet"
+      },
+      { 
+        "value": 6, 
+        "text": "Le Javascript et le web",
+        "resume": "On va faire autre chose que du console.log(); !"
+      },
+      { 
+        "value": 7, 
+        "text": "Les événements",
+        "resume": "Réveillons la puissance du JS !"
+      },
+      { 
+        "value": 8, 
+        "text": "Les librairies",
+        "resume": "Ne faisons pas des choses qui existent déjà !"
+      }
+    ],
+    [
+      { 
+        "value": 0, 
+        "text": "Bootstrap",
+        "resume": ""
+      },
+      { 
+        "value": 1, 
+        "text": "JQuery",
+        "resume": ""
+      }
+    ],
+    [
+      { 
+        "value": 0, 
+        "text": "L'asynchrone",
+        "resume": ""
+      },
+      { 
+        "value": 1, 
+        "text": "Les services web",
+        "resume": ""
+      },
+      { 
+        "value": 2, 
+        "text": "Optimisation du code",
+        "resume": ""
+      }
+    ],
+    [
+      { 
+        "value": 0, 
+        "text": "Qu'est-ce qu'un framework ?",
+        "resume": ""
+      },
+      { 
+        "value": 1, 
+        "text": "Les Single Page Application",
+        "resume": ""
+      },
+      { 
+        "value": 2, 
+        "text": "Installation de Vue-cli",
+        "resume": ""
+      }
+    ],
+    [
+      { 
+        "value": 0, 
+        "text": "Hello Nuxt",
+        "resume": ""
+      }
+    ]
+  ]
+}
