@@ -1,7 +1,11 @@
 @import 'variables.scss';
 @import 'overloads/bootstrap.scss';
 
-
+.d-md-grid {
+  @media screen and (min-width: $md) {
+    display: grid;
+  }
+}
 .height-full {
   height: 100%;
 }
@@ -24,6 +28,9 @@
 .mx-8 {
   margin-left: 3rem !important;
   margin-right: 3rem !important;
+}
+.text-primary {
+  color: $primary !important;
 }
 
 h1 {
@@ -103,3 +110,4 @@ b {
 @import 'components/course-card.scss';
 @import 'components/next-courses.scss';
 @import 'components/code-highlighter.scss';
+@import 'components/footer.scss';

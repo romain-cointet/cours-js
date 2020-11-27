@@ -3,12 +3,10 @@
     <b-row align-v="center" align-h="between" class="height-full">
       <b-col md="4">
         <nuxt-link to="/">Home</nuxt-link>
-        <nuxt-link to="/1">Chapter</nuxt-link>
-        <nuxt-link to="/1/1">Course</nuxt-link>
       </b-col>
 
       <b-col md="7">
-        <SearchCourse :class="showSearchCourse?'show':''"/>
+        <SearchCourse :class="showSearchCourse?'show':''" compName="search-course-NAVABR"/>
       </b-col>
     </b-row>
   </header>

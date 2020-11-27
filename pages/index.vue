@@ -1,6 +1,6 @@
 <template>
   <div class="page--home" v-if="content">
-    
+    <Navbar home />
     <article>
       <Hero 
         home 
@@ -16,9 +16,6 @@
       <b-container>
         <Intro :content="content.comeBack" />
       </b-container>
-
-      <nuxt-link to="/test">TEST</nuxt-link>
-      
     </article>
     
 

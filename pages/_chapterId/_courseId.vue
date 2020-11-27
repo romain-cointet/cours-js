@@ -1,5 +1,6 @@
 <template>
   <div class="page--course" v-if="course">
+    <Navbar home />
     <article>
       <Hero 
         :chapter="course.head.chapter" 
@@ -36,9 +37,6 @@
       let response = await this.$axios.get(url);
       let course = response.data;
       this.course = course;
-    },
-    computed: {
-      ...mapState(['chapterSelected', 'courseSelected'])
     },
     mounted() {
       this.$store.dispatch('loadCurrentChapter', this.$route.params.chapterId)

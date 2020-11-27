@@ -3,7 +3,7 @@
     <b-container class="height-full">
       <b-row class="height-full">
         <b-col md="10" offset-md="1" align-self="start" class="mb-4">
-          <SearchCourse big />
+          <SearchCourse big compName="search-course-HERO"/>
         </b-col>
      
         <b-col md="12" align-self="end" class="pb-4">

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['comp--search-course', big?'big':'']">
+  <div :class="['comp--search-course', big?'big':'']" :ref="compName">
     <div class="grid">
       <div id="catch-phrase">
         <span v-if="big">Choisis ton cours...</span>
@@ -9,16 +9,16 @@
       <div id="chapter">
         <label for="chapter-select" v-show="big">Sélectionne un chapitre</label>
         <b-form-select 
-          v-model="chapterSelected" 
-          :options="chapterOptions" 
+          v-model="chapterChoosen" 
+          :options="chapters" 
           id="chapter-select"></b-form-select>
       </div>
 
       <div id="cursus">
         <label for="cursus-select" v-show="big">Sélectionne un cours</label>
         <b-form-select 
-          v-model="courseSelected" 
-          :options="courseOptions[chapterSelected]" 
+          v-model="courseChoosen" 
+          :options="courses[chapterChoosen]" 
           id="cursus-select"></b-form-select>
       </div>
 
@@ -45,39 +45,40 @@
       course: {
         type: Number,
         default: 0
-      }
+      },
+      compName: null
     },
     data() {
       return {
         chapterChoosen: 0,
-        courseChoosen: 0
+        courseChoosen: 0,
       }
     },
     computed: {
-      ...mapState({
-        chapterOptions: 'chapters',
-        courseOptions: 'courses',
-        chapterSelected: 'chapterSelected',
-        courseSelected: 'courseSelected'
-      }),
-      chapterSelected: {
-        get: function () {
-          return this.$store.state.chapterSelected;
+      ...mapState(['chapters', 'courses', 'chapterSelected', 'courseSelected']),
+      /*
+      chapterChoosen: {
+        get () {
+          return this.chapterSelected;
         },
-        
-        set: function (chapterId) {
-          this.chapterChoosen = chapterId;
+        set (chapterId) {
           this.courseChoosen = 0;
+          return chapterId;
         }
       },
-      courseSelected: {
-        get: function () {
-          return this.$store.state.courseSelected;
+      courseChoosen: {
+        get () {
+          return this.courseSelected;
         },
-        set: function (courseId) {
-          this.courseChoosen = courseId;
+        set (courseId) {
+          return courseId;
         }
       }
+      */
+    },
+    created() {
+      this.chapterChoosen = this.chapterSelected;
+      this.courseChoosen = this.courseSelected;
     }
   }
 </script>
