@@ -1,0 +1,167 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Syntaxe et bases de l'algorithmie",
+    "resume": "Ça y est, on va coder... Préparez vos dolipranes..."
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "À la fin de ce cours, "
+      },
+      {
+        "type": "h4",
+        "value": "tu seras enfin un développeur web !"
+      },
+      {
+        "type": "p",
+        "value": "Du moins, un débutant... 😅"
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "",
+        "alt": ""
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "La base de la base"
+    },
+    {
+      "type": "p",
+      "value": "On va reprendre notre code de tout à l'heure en changeant juste le chemin du fichier javascript. Tu vas donc créer un dossier <b>cours-js</b> et à l'intérieur y créer un nouveau dossier <b>cours-0-2</b> (c'est par rapport à la page du cours où tu te trouves: chapitre 0, cours 2)."
+    },
+    {
+      "type": "p",
+      "value": "À présent, tu vas ouvrir ton éditeur de code préféré, on appelle ça un IDE (si tu n'en as pas, je te conseille Visual Code Studio) et y ouvrir ton dossier <b>cour-0-2</b>. Une fois cela fait, tu vas y créer un nouveau fichier que tu appelleras <b>index.html</b> et tu y colleras le code ci dessous:"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n   <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> C'est possible qu'en copie-collant mes lignes de codes, tu te retrouves avec des espaces au lieu des tabulations... Je suis vraiment désolé de ce désagrément, je n'ai pas encore trouvé de solution... Par contre, au lieu de copier coller bêtement mon code, tu peux l'écrire par toi même, ça t'aidera à le retenir pour les prochaines fois !"
+    },
+    {
+      "type": "p",
+      "value": "Toujours dans le même dossier, tu vas créer un nouveau fichier que tu appeleras <b>app.js</b> (ou le nom que tu lui as donné dans ton code HTML."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Attention au chemin <b>s</b>ou<b>rc</b>e que tu as mis dans ton code html ! <b class='text-primary'>src='app.js'</b> veut dire que ton fichier javascript se trouve à la racine de ton projet, soit dans <b>cours-0-2</b>. Tu peux très bien le ranger dans un dossier enfant appelé par exemple <b>js</b> mais dans ton code html tu devras écrire <b class='text-primary'>src='js/app.js'</b>.<br> Entiende ?"
+    },
+    {
+      "type": "p",
+      "value": "Bien, maintenant ouvrons le fichier <b>index.html</b> avec notre navigateur web (je te conseille fortement d'utiliser <b>Chrome</b> ou <b>Firefox</b> !) et regardons ce qu'il se passe... <br>Alors ? Qu'est-ce que ça affiche ? Rien 😱? T'inquiète, c'est normal, on a rien écrit comme qui est censé afficher quelque chose 😂. À présent, retournons dans notre fichier <b>app.js</b> et ajoutons cette ligne :"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log('Coucou !');"
+    },
+    {
+      "type": "p",
+      "value": "Recharge ta page sur ton navigateur... Toujours rien ! Fais un clic droit sur ta page et clique sur <b>Inspecter l'élément</b>. Là, une nouvelle fenêtre s'affiche avec du HTML. Cliques sur l'onglet <b>Console</b>. Tadammmm ! Il y a écrit <b>Coucou !</b> dans ta console, c'est pas beau ça ? Voilà tu sais faire du Javascript. Je te souhaite bon courage dans ton parcours professionnel, on se recroisera peut-être un jour..."
+    },
+    {
+      "type": "p",
+      "value": "Allez, c'est bon je plaisante... Je vais t'expliquer ce qu'est donc cette sorcellerie."
+    },
+    {
+      "type": "p",
+      "value": "La ligne que tu as écrit dans ton fichier javascript s'appelle une instruction. Tu ordonnes à ton navigateur d'effectuer cette ligne. En l'ocurence, l'instruction <b>console.log</b> permet d'afficher ce que l'on veut dans la console. C'est quoi la console ? C'est ce qu'il va te servir à débugguer ton site quand tout sera planté ! D'où l'importance de te la présenter en premier !"
+    },
+    {
+      "type": "h4",
+      "value": "Instructions et commentaires"
+    },
+    {
+      "type": "h5",
+      "value": "Les instructions"
+    },
+    {
+      "type": "p",
+      "value": "Comme je viens de le dire, une instruction sert à donner un ordre à ton navigateur. Tu peux lui dire d'afficher quelque chose dans la console, ou lui dire de déclarer une variable, ou lui dire d'effectuer un calcul, ou encore lui dire d'appeler une fonction..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log('Coucou !');\nlet maVariable = 3;\nlet monResultat = maVariable + 10;\nconsole.log(maVariable, monResultat);"
+    },
+    {
+      "type": "p",
+      "value": "Recopie ce code dans ton fichier javascript et recharge la page de ton navigateur... <br>Qu'est-ce qu'il s'affiche dans la console ?"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "console",
+      "value": "Coucou !\n3, 13"
+    },
+    {
+      "type": "p",
+      "value": "Regardons un peu ce qu'il s'est passé mais sans rentrer dans les détails: Nous avons ici 4 lignes de code dont 4 instructions :"
+    },
+    {
+      "type": "ul",
+      "value": "<li>Bon le Coucou, je vous l'ai déjà expliqué.</li><li>La seconde ligne dit au navigateur qu'une variable qui s'appellera <b>maVariable</b> sera déclarée et aura pour valeur <b>3</b>.</li><li>La troisième ligne déclare la variable <b>monResultat</b> et lui donnera pour valeur <b>3 + 10</b>.</li><li>Et la quatrième ligne affichera dans ma console les valeurs de mes variables <b>maVariable</b> et <b>monResultat</b>.</li>"
+    },
+    {
+      "type": "p",
+      "value": "On verra un peu plus tard ce qu'est une variable mais pour le moment, contente toi juste de comprendre qu'une instruction donne un ordre au navigateur."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Dans les anciennes versions de Javascript, on devait terminer chaque instruction par un point virgule<b>;</b>. Aujourd'hui il n'est plus obligatoire de le mettre donc ne vous étonnez pas de voir du code avec des points virgules et d'autre sans point virgule."
+    },
+    {
+      "type": "h5",
+      "value": "Les commentaires"
+    },
+    {
+      "type": "p",
+      "value": "A la différence d'une instruction, un commentaire ne donne aucun ordre au navigateur. A quoi sert-il alors ? A vous y retrouver dans votre code ! Quand vous arriverez à votre 200<sup>ème</sup> ligne de code, vous serez bien content de lire un commentaire qui explique ce que fait la ligne d'en dessous !"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Affiche 'Coucou !' dans la console\nconsole.log('Coucou !');\n\n// Déclare une variable qui s'appelle maVariable et qui est égale à 3\nlet maVariable = 3;\n\n/* Déclare la variable monResultat\nqui est égale à maVariable (donc 3) plus 10 */\nlet monResultat = maVariable + 10;\n\n//Affiche dans la console les valeurs de maVariable et de monResultat\nconsole.log(maVariable, monResultat);"
+    },
+    {
+      "type": "p",
+      "value": "On remarque qu'il y a deux types de commentaires:"
+    },
+    {
+      "type": "ul",
+      "value": "<li>Les commentaires en une seule ligne. Ils commencent par <b>//</b>.</li><li>Les commentaires multilignes. Ils commencent par <b>/*</b>, peuvent faire autant de lignes que tu veux et se terminent par <b>*/</b>."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Tu peux aussi commenter des lignes de tes instructions pour qu'elles ne soient pas prises en compte par le navigateur. On s'en sert souvent quand on débugge notre code."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log('Coucou !');\n// let maVariable = 3;\nlet monResultat = maVariable + 10;\n// console.log(maVariable, monResultat);"
+    },
+    {
+      "type": "p",
+      "value": "Ici, seul le <b>console.log de 'Coucou'</b> et la déclaration de la <b>variable monResultat</b> seront pris en compte mais tu auras une <b class='text-primary'>erreur</b> dans ta console... Et oui, tu demandes à ton navigateur d'additionner 10 avec la variable <b>maVariable</b> mais celle-ci n'existe plus puisque nous l'avons commenté. Donc attention à ne pas commenter n'importe quoi !"
+    }
+  ]
+}

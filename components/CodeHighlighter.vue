@@ -1,7 +1,7 @@
 <template>
   <div class="comp--code-highlighter">
     <pre>
-      <div class="infos"><span class="file-name">{{ fileName }}</span> <span class="language">{{ language }}</span></div>
+      <div class="infos"><span class="file-name">{{ fileName }}</span> <span class="language" v-if="language">({{ language }})</span></div>
       <code v-highlight :class="language">{{ code }}</code>
     </pre>
   </div>

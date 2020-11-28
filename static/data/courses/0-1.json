@@ -11,23 +11,15 @@
     "left": [
       {
         "type": "h3",
-        "value": "Langages clients et langages serveurs"
+        "value": "Pour apprendre à coder…"
       },
       {
         "type": "h4",
-        "value": "Dans le monde merveilleux du web, il y a…"
+        "value": "…il faut comprendre comment se construit une page web."
       },
       {
         "type": "p",
-        "value": "… Deux types de langages:"
-      },
-      {
-        "type": "ul",
-        "value": "<li><b>Les langages clients</b></li><li><b>Les langages serveurs</b></li>"
-      },
-      {
-        "type": "p",
-        "value": "Mais c’est quoi la différence ? Pourquoi n’y a-t-il pas qu’un seul langage ? Et pourquoi on est obligé de coder ? On va tout d’abord essayer de comprendre le fonctionnement d’un site web."
+        "value": "Avant de se lancer dans les lignes de code, on va comprendre comment se structure un fichier HTML."
       }
     ],
     "right": [
@@ -41,88 +33,76 @@
   "content": [
     {
       "type": "h4",
-      "value": "Tout est histoire de communication"
+      "value": "Under the DOM"
     },
     {
       "type": "p",
-      "value": "Lorsqu’un visiteur se rend sur une adresse url (exemple: https://google.fr), l’ordinateur du visiteur demande en réalité à communiquer avec le serveur qui contient le site de Google pour qu’il lui affiche la page. Ce serveur a une adresse, on appelle ça une adresse IP. On peut le vérifier en tappant dans un terminal :"
+      "value": "Le <b>DOM</b> (Document Object Model) d’une page web est par définition sa structure HTML. Il se représente comme un arbre généalogique avec ses branches qui sont les enfants de l’élément racine. Ces branches sont appelées des <b>noeuds</b> et ces noeuds sont représentés en HTML par des <b>balises</b>."
     },
     {
       "type": "code",
-      "language": "",
-      "fileName": "Terminal",
-      "value": "ping google.fr"
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<balise> </balise>"
     },
     {
       "type": "p",
-      "value": "On voit bien que le ping est envoyé à une adresse ip:"
+      "value": "L’élement racine d’un fichier HTML est la balise <b>html</b>. Cette racine a deux enfants (donc deux noeuds) : <b>head</b> (donne des informations sur le site au navigateur et récupère le CSS) et <b>body</b> (contient toute la partie visuelle du site). Et ces enfants ont bien entendu de multiples autres enfants qui pourront également avoir des enfants eux aussi. Mais un bout de code vaut mille mots :"
     },
     {
       "type": "code",
-      "language": "",
-      "fileName": "Terminal",
-      "value": "172.217.18.35"
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <h1>Un super titre</h1>\n  <div>\n   <p>Mon paragraphe</p>\n  </div>\n </body>\n</html>"
     },
     {
       "type": "p",
-      "class": "mb-8",
-      "value": "Mais il serait trop complexe pour l’utilisateur de retenir chaque adresse IP de chaque site que l’on veut visiter. C’est pourquoi on donne un alias à ces adresses IP que l’on nomme une <b>adresse URL</b>. Pour résumer, quand tu visites une site, toi, <b>le client</b>, demandes au serveur d’afficher ses pages webs.</b>."
+      "value": "Donc dans cet exemple, la balise <b>html</b> a deux noeuds: <b>head</b> et <b>body</b>. <br>La balise <b>head</b> a un noeud: <b>title</b>. <br>La balise body a deux noeuds: <b>h1</b> et <b>div</b>. <br>Et la balise <b>div</b> a un noeud: <b>p</b>."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Tu peux remarquer au debut de mon code une étrange balise <b>DOCTYPE</b>. Cette balise ne fait pas parti du DOM mais elle est nécessaire (et obligatoire!). Elle est là pour préciser au navigateur que c'est bien du HTML qu'il lira. Car oui des langages de balises, il n'y en a pas qu'un... Exemple: le <b>XML</b>."
+    },
+    {
+      "type": "p",
+      "value": "<span class='spoil'>SPOIL</span> Je m'avance un peu mais grâce au DOM, on pourra se déplacer librement dans l'arborescence de notre page avec Javascript afin de récupérer un ou plusieurs noeuds en particulier."
+    },
+    {
+      "type": "p",
+      "value": "Tu peux voir dans mon exemple que chaque enfant est décalé d'une tabulation. C'est une norme de lisibilité pour les développeurs mais tu peux très bien ne pas aller à la ligne et ne pas mettre de tabulations. Ton navigateur web comprendra très bien ton code. Toi par contre c'est moins sûr..."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html><html><head><title>Titre de ma page</title></head><body><h1>Un super titre</h1><div><p>Mon paragraphe</p></div></body></html>"
+    },
+    {
+      "type": "p",
+      "value": "Et encore, il n'y a qu'un titre et un pargraphe de coder... Je vais donc partir du principe que tu iras à la ligne et que tu ajouteras une tabulation à chaque noeuds de ton DOM. 😎"
     },
     {
       "type": "h4",
-      "value": "Et comment communiquent-t-ils ?"
-    },
-    {
-      "type": "h5",
-      "value": "Les langages clients"
+      "class": "mt-8",
+      "value": "Et le Javascript dans tout ça, il est où ?"
     },
     {
       "type": "p",
-      "value": "Pour afficher une page web, votre navigateur internet a besoin de comprendre ce que lui envoie le serveur. Le serveur va donc envoyer du code lisible à votre navigateur. C’est le <b>langage client</b>."
+      "value": "Le Javascript se trouve dans une balise <b>script</b> qui vient se positionner juste avant la fermeture de la balise <b>body</b>, donc après tout ton contenu."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <h1>Un super titre</h1>\n  <div>\n   <p>Mon paragraphe</p>\n  </div>\n  <script type='text/javascript' src='mon/chemin.js'></script>\n </body>\n</html>"
     },
     {
       "type": "p",
-      "value": "Il y a plusieurs langages clients, notamment les plus courants :"
-    },
-    {
-      "type": "ul",
-      "value": "<li><b>Le HTML:</b> c’est la structure de votre page. C'est grâce à lui que tu créeras l'ossature de ton site. Exemple: Un bloc pour le titre, un autre bloc pour le contenu de mon article, etc...</li><li><b>le CSS:</b> c’est le style de votre page. C'est avec du CSS que tu diras que ton titre sera rouge et d'une taille de 32px, que le bloc du contenu de ton article sera sur la droite, etc...</li><li><b>le Javascript:</b> ce sont les interactions de ta page. Il te permettra par exemple de masquer du contenu au clic sur un bouton, de savoir à quelle hauteur de scroll tu te trouves, de te donner dynamiquement la largeur d'un bloc, etc...</li>"
+      "value": "Pourquoi pas dans le <b>head</b> ou en début de <b>body</b> ? Et bien car pour afficher ta page, ton navigateur va construire le DOM de haut en bas. Donc si tu insères du codes Javascript qui va récupérer un noeud dans ton DOM, mais que le DOM n'est pas encore créé, rien ne va marcher."
     },
     {
       "type": "p",
-      "value": "Si tu te rends sur un site web, n'importe lequel, que tu fais un clic droit sur la page et que tu cliques sur <b>Afficher le code source</b>, tu auras accès aux langages clients de ce site."
-    },
-    {
-      "type": "p",
-      "value": "Pas de panique, tu comprendras ces lignes de code rapidement si ce n'est pas déja le cas."
-    },
-    {
-      "type": "h5",
-      "value": "Et les langages serveurs alors ? "
-    },
-    {
-      "type": "p",
-      "value": "Ce sont des langages propres au serveur qui ne sont pas envoyés au client. Ces langages sont le moteur du site. C’est grâce à eux que tu vas pouvoir te connecter à votre compte Facebook, envoyer des messages sur Messenger, uploader une photo sur Instagram… Non je ne suis pas sponso par Mark Zuckerberg. <br>Il va de soit que ces lignes de codes ne doivent en aucun cas être visibles par le client sinon il pourrait directement accéder aux identifiants de la base de données, aux algorithmes brevetés, aux comptes des autres utilisateurs, etc… "
-    },
-    {
-      "type": "p",
-      "value": "Il y a également plusieurs langages côté serveur, notamment les plus courants :"
-    },
-    {
-      "type": "ul",
-      "value": "<li><b>Le PHP:</b> sûrement le langage serveur du web le plus connu et le plus utilisé.</li><li><b>Le Node JS:</b> c’est du Javascript mais côté serveur. Il monte en flèche depuis quelques années.</li><li><b>Le Ruby:</b> si tu es un acharné du code avec une syntaxe illisible et es persuadé que le Ruby c'est l'avenir, vas-y fonce l'apprendre...</li>"
-    },
-    {
-      "type": "h5",
-      "value": "En bref :"
-    },
-    {
-      "type": "ul",
-      "value": "<li>Les langages serveurs reçoivent les requêtes client et leur renvoient des données</li><li>Les langages clients reçoivent les données et les affichent avec style !</li>"
-    },
-    {
-      "type": "p",
-      "value": "Dans ce cours, nous ne verrons que du Javascript côté client et c'est déjà pas mal! Quand tu seras à l'aise avec l'algorithmie et les langages clients, tu pourras t'attaquer aux langages serveurs. <br>En attendant, commençons par le commencement: attaquons nous au DOM !"
+      "value": "Allez, maintenant qu'on a compris ça, on va pouvoir rentrer dans le vif du sujet !"
     }
   ]
 }

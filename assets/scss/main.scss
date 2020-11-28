@@ -29,6 +29,23 @@
   margin-left: 3rem !important;
   margin-right: 3rem !important;
 }
+.note, .spoil {
+  display: inline-block;
+  font-family: Raleway-Bold;
+  color: white;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+.note {
+  background: $beige;
+}
+.spoil {
+  background: $primary;
+}
+.text-gray {
+  color: $gray;
+}
 .text-primary {
   color: $primary !important;
 }
