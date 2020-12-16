@@ -54,8 +54,8 @@ export default {
           "right": [
             {
               "type": "img",
-              "src": "",
-              "alt": ""
+              "src": "home.png",
+              "alt": "Welcode to the jungle;"
             }
           ]
         },
@@ -71,15 +71,16 @@ export default {
             },
             {
               "type": "a",
-              "src": "#intro",
+              "href": "#intro",
+              "class": "btn btn-primary cta",
               "value": "Revenir au choix du cours"
             }
           ],
           "right": [
             {
               "type": "img",
-              "src": "",
-              "alt": ""
+              "src": "not-finish.jpg",
+              "alt": "I see you"
             }
           ]
         }

@@ -25,8 +25,8 @@
     "right": [
       {
         "type": "img",
-        "src": "",
-        "alt": ""
+        "src": "0-2.gif",
+        "alt": "Syntaxe et bases de l'algorithmie"
       }
     ]
   },
@@ -51,19 +51,15 @@
     },
     {
       "type": "p",
-      "value": "<span class='note'>NOTE</span> C'est possible qu'en copie-collant mes lignes de codes, tu te retrouves avec des espaces au lieu des tabulations... Je suis vraiment désolé de ce désagrément, je n'ai pas encore trouvé de solution... Par contre, au lieu de copier coller bêtement mon code, tu peux l'écrire par toi même, ça t'aidera à le retenir pour les prochaines fois !"
-    },
-    {
-      "type": "p",
       "value": "Toujours dans le même dossier, tu vas créer un nouveau fichier que tu appeleras <b>app.js</b> (ou le nom que tu lui as donné dans ton code HTML."
     },
     {
       "type": "p",
-      "value": "<span class='note'>NOTE</span> Attention au chemin <b>s</b>ou<b>rc</b>e que tu as mis dans ton code html ! <b class='text-primary'>src='app.js'</b> veut dire que ton fichier javascript se trouve à la racine de ton projet, soit dans <b>cours-0-2</b>. Tu peux très bien le ranger dans un dossier enfant appelé par exemple <b>js</b> mais dans ton code html tu devras écrire <b class='text-primary'>src='js/app.js'</b>.<br> Entiende ?"
+      "value": "<span class='note'>NOTE</span> Attention au chemin <b class='text-primary'>s</b>ou<b class='text-primary'>rc</b>e que tu as mis dans ton code html ! <b class='text-primary'>src='app.js'</b> veut dire que ton fichier javascript se trouve à la racine de ton projet, soit dans <b>cours-0-2</b>. Tu peux très bien le ranger dans un dossier enfant appelé par exemple <b>js</b> mais dans ton code html tu devras écrire <b class='text-primary'>src='js/app.js'</b>.<br> Entiende ?"
     },
     {
       "type": "p",
-      "value": "Bien, maintenant ouvrons le fichier <b>index.html</b> avec notre navigateur web (je te conseille fortement d'utiliser <b>Chrome</b> ou <b>Firefox</b> !) et regardons ce qu'il se passe... <br>Alors ? Qu'est-ce que ça affiche ? Rien 😱? T'inquiète, c'est normal, on a rien écrit comme qui est censé afficher quelque chose 😂. À présent, retournons dans notre fichier <b>app.js</b> et ajoutons cette ligne :"
+      "value": "Muy bien, maintenant ouvrons le fichier <b>index.html</b> avec notre navigateur web (je te conseille fortement d'utiliser <b>Chrome</b> ou <b>Firefox</b> !) et regardons ce qu'il se passe... <br>Alors ? Qu'est-ce que ça affiche ? Rien 😱? T'inquiète, c'est normal, on a rien écrit qui est censé afficher quelque chose 😂. À présent, retournons dans notre fichier <b>app.js</b> et ajoutons cette ligne :"
     },
     {
       "type": "code",
@@ -157,11 +153,246 @@
       "type": "code",
       "language": "javascript",
       "fileName": "app.js",
-      "value": "console.log('Coucou !');\n// let maVariable = 3;\nlet monResultat = maVariable + 10;\n// console.log(maVariable, monResultat);"
+      "value": "/*\nconsole.log('Coucou !');\nlet maVariable = 3;\n*/\nlet monResultat = maVariable + 10;\n// console.log(maVariable, monResultat);"
     },
     {
       "type": "p",
-      "value": "Ici, seul le <b>console.log de 'Coucou'</b> et la déclaration de la <b>variable monResultat</b> seront pris en compte mais tu auras une <b class='text-primary'>erreur</b> dans ta console... Et oui, tu demandes à ton navigateur d'additionner 10 avec la variable <b>maVariable</b> mais celle-ci n'existe plus puisque nous l'avons commenté. Donc attention à ne pas commenter n'importe quoi !"
+      "value": "Ici, seule la déclaration de la <b>variable monResultat</b> sera prise en compte mais tu auras une <b class='text-primary'>erreur</b> dans ta console... Et oui, tu demandes à ton navigateur d'additionner 10 avec la variable <b>maVariable</b> mais celle-ci n'existe plus puisque nous l'avons commenté. Donc attention à ne pas commenter n'importe quoi !"
+    },
+    {
+      "type": "h4",
+      "value": "Les variables"
+    },
+    {
+      "type": "h5",
+      "value": "Qu'est-ce qu'une variable et comment la déclarer ?"
+    },
+    {
+      "type": "p",
+      "value": "Il faut imaginer une variable comme un container, une boîte. Et cette boîte, peut contenir n'importe quoi. On pourra y mettre à l'intérieur du texte, des chiffres, des tableaux de valeurs et tout autre chose."
+    },
+    {
+      "type": "p",
+      "value": "Pour déclarer une variable, on l'a vu un peu plus haut, il faut d'abord utiliser le mot <b>let</b> et ensuite lui donner un nom."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let fruit;"
+    },
+    {
+      "type": "p",
+      "value": "Ce n'est pas plus compliqué que ça, ma variable <b>fruit</b> est déclarée. Elle n'a pour l'instant aucune valeur mais tu peux tenter un <b>console.log</b> dessus et regarder ce qu'il en ressort..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log(fruit)"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "console",
+      "value": "undefined"
+    },
+    {
+      "type": "p",
+      "value": "C'est bien ce qu'on disait, la variable <b>fruit</b> n'a pas de valeur."
+    },
+    {
+      "type": "h5",
+      "value": "Assigner une valeur à une variable"
+    },
+    {
+      "type": "p",
+      "value": "À présent qu'on a déclaré notre variable, il va falloir lui affecter une valeur sinon elle ne va pas servir à grand chose. Pour celà il suffit de l'appeler et de lui donner sa valeur grâce à un <b>=</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "//Je déclare ma variable\nlet fruit;\n\n//Je lui attribue une valeur\nfruit = 'banane';"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Tu peux directement assigner une valeur à ta variable au moment de sa déclaration !"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "//Je déclare ma variable et lui assigne une valeur\nlet fruit = 'banane';"
+    },
+    {
+      "type": "p",
+      "value": "Si à présent tu fais un console log de ta variable tu verras que la console retourne bien une valeur définit:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let fruit = 'banane';\nconsole.log(fruit);"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "console",
+      "value": "banane"
+    },
+    {
+      "type": "h5",
+      "class": "mt-8",
+      "value": "Convention de nommage"
+    },
+    {
+      "type": "p",
+      "value": "Je profite de ce chapitre pour vous parler des conventions de nommage des variables. Ce sont en quelque sorte des règles d'écriture pour faciliter la lisibilité du code entre développeurs. En Javascript, pour déclarer des variables, on a tendance à utiliser la convention de nommage appelée le <b class='text-primary'>Camel Case</b>. Le Camel Case s'écrit en attachant tous les mots et chaque mot commence par une majuscule à l'exception du premier (comme les hashtags sur Twitter):"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let fruit;\nlet sommeDeMesNotes;\nlet monResultat;"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> J'ai oublié de te dire: quand tu déclares une variables, ne lui mets pas d'accents ou de caractères spéciaux... <b class='text-primary'>& $ ^ é è ! ù à...</b> Surtout que certains vont servir à coder !"
+    },
+    {
+      "type": "p",
+      "value": "En HTML et CSS, on aura tendance à utiliser la convention de nommage appelée le <b class='text-primary'>Kebab Case</b> qui consiste à tout écrire en minuscule et à séparer les mots par des tirets (et pas des underscores, ça c'est encore une autre convention...):"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<h2 class='text-red'>Mon sous titre rouge</h2>"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "fileName": "style.css",
+      "value": ".text-red { color: #FF0000; }"
+    },
+    {
+      "type": "h5",
+      "value": "Les types de variables"
+    },
+    {
+      "type": "p",
+      "value": "Une variable peut être de différents types selon la valeur qu'on lui attribut:"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>De type Number</b>: en lui affectant une valeur numérique</li><li><b>De type Boolean:</b> en lui affectant une valeur binaire (<b>true</b> ou <b>false</b>)</li><li><b>de type String:</b> en lui affectant une chaîne de caractères</li>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Variables de type Number\nlet annee = 2020;\nlet coefficient = 0.3;\n\n// Variables de type Boolean\nlet alive = true;\nlet isJumping = false;\n\n// Variables de type String\nlet nom = 'Jean Dupont';\nlet birthday = '20/09/1989';"
+    },
+    {
+      "type": "p",
+      "value": "<span class='spoil'>SPOIL</span> On verra dans les cours suivant qu'il y a d'autres types de variables. 😉"
+    },
+    {
+      "type": "h5",
+      "value": "Modifier une variable"
+    },
+    {
+      "type": "p",
+      "value": "Bien évidemment en programmation, nos variables ne vont pas toujours avoir la même valeur à travers toute notre application. Imaginons un site avec des comptes utilisateurs, il y aura sûrement une variable pour signifier au site que l'utilisateur est connecté ou pas:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// L'utilisateur arrive sur le site mais n'est pas connecté\nlet loggedUser = false;"
+    },
+    {
+      "type": "p",
+      "value": "Et arrive le moment où l'utilisateur se connecte en rentrant son email, son mot de passe et en cliquant sur le bouton de connexion..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Envoie des infos utilisateur à la base de données...\n// Utilisateur trouvé !\nloggedUser = true;"
+    },
+    {
+      "type": "p",
+      "value": "Comme on vient de le voir, pour modifier la valeur d'une variable, il suffit simplement de la rappeler et de lui assigner une nouvelle valeur."
+    },
+    {
+      "type": "h4",
+      "value": "Les opérateurs"
+    },
+    {
+      "type": "p",
+      "value": "Si on veut modifier la valeur d'une variable, on va également pouvoir utiliser des opérateurs arithmétiques... N'aie pas peur, on va faire des maths niveau CP."
+    },
+    {
+      "type": "h5",
+      "value": "Additions et soustractions"
+    },
+    {
+      "type": "p",
+      "value": "Je te l'ai dit, on ne va pas partir dans des matrices et des primitives ! (Même si c'est possible d'en faire...) Aller, pas besoin de tergiverser, en plus on a déjà vu les additions; place au code !"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let a = 3;\nlet b = 2;\nlet c = 0;\n\n// Addition\nlet somme = a + b; // correspond à 3 +2\n\n// Soustraction\nlet difference = a - b; // correspond à 3 - 2\n\n// Addition\na += b; // correspond à 3 + 2\n\n// Soustraction\nb -= a; // correspond à 2 - 3 \n\n// Incrémentation\nc++; // ajoute +1 donc la variable c est égale à 1\n\n// Décrémentation\nc--; // enlève -1 donc la variable c est égale à 0\n\n// Suprise...\nlet d = '2';\nlet suprise = a + d; // Alors ça fait quoi ça ?? 😊\nconsole.log(suprise);"
+    },
+    {
+      "type": "p",
+      "value": "<span class='spoil'>SPOIL</span> Ca retourne une chaîne de caractère avec pour valeur <b>'32'</b>. Mais pourquoi ? Car la variable <b>d</b> n'est pas de type <b>Number</b> mais de type <b>String</b>. C'est une chaîne de caractères. Et par défaut Javascript ne peut pas additionner un Number et un String. Par conséquent, il va comprendre que le <b>+</b> est utilisé pour concaténer cette chaine de caractères. Il va donc simplement assembler le 3 et le 2 pour faire 32."
+    },
+    {
+      "type": "p",
+      "value": "On peut donc utiliser l'opérateur <b>+</b> pour concaténer des chaînes de caractères."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let hello = 'Bonjour ';\nlet nom = 'Josie';\nlet phrase = hello + nom; // Retourne 'Bonjour Josie'"
+    },
+    {
+      "type": "h5",
+      "value": "Multiplications et divisions"
+    },
+    {
+      "type": "p",
+      "value": "Tout comme les additions et les soustractions, on peut effectuer des multiplications et des divisions sur nos variables."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let a = 3;\nlet b = 2;\n\n// Multiplication\nlet resultat1 = a * b; // correspond à 3 * 2\n\n// Division\nlet resultat2 = a / b; // correspond à 3 / 2\n\n// Multiplication\na *= b; // correspond à 3 * 2\n\n// Division\na /= b; // correspond à 3 / 2"
+    },
+    {
+      "type": "h4",
+      "value": "Les constantes"
+    },
+    {
+      "type": "p",
+      "value": "Comme son nom l'indique, <b>une constante</b> est quelque chose qui va avoir une valeure constante, c'est à dire que sa valeur ne changera jamais à l'inverse des variables. La logique d'une constante est la même que celle d'une variable à la différence où on ne pourra pas lui re affecter une nouvelle valeur, une fois sa valeur définit par défaut. Pour déclarer une constante, on ne va pas utiliser <b>let</b> mais <b>const</b> tout simplement. Exemple de constantes: l'adresse url de la base de données, la date de naissance d'un utilisateur, etc... Ces valeurs ne sont pas amenées à changer donc nous les mettrons dans des constantes."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "const dataBasePath = 'facebook.mysql.ovh.net';\n\ndataBasePath = 'twitter.mysql.ovh.net' // ERREUR: on ne peut pas modifier une constante"
+    },
+    {
+      "type": "h4",
+      "value": "Les conditions"
     }
   ]
 }

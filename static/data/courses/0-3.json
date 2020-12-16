@@ -1,0 +1,194 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Tableaux et objets",
+    "resume": "C'est le moment où je te perds..."
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "On commence à rentrer dans le vif du sujet."
+      },
+      {
+        "type": "h4",
+        "value": "Maintenant qu'on sait utiliser les variables et la console, on va pouvoir rigoler un peu..."
+      },
+      {
+        "type": "p",
+        "value": "Allez courage, on en est qu'au début !"
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "0-3.gif",
+        "alt": "Tableaux et objets"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "Les tableaux"
+    },
+    {
+      "type": "h5",
+      "value": "Déclarer un tableau"
+    },
+    {
+      "type": "p",
+      "value": "Les variables de type String et Number c'est bien mais comment je fais si je veux stocker de multiples données, par exemple récupérer la liste de tous les utilisateurs de mon site ? Je ne vais pas créer une variable par utilisateur, ça serait impossible... C'est pour ça qu'il existe un autre type de variable: <b>les tableaux</b>. Un tableau (on appelle ça un <b>Array</b>), va permettre de stocker un nombre infini de données dans ma variable. Pour déclarer un tableau, il faut insérer nos données à l'intérieur de crochets <b>[</b> et <b>]</b>, et séparer ces données par des virgules:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Mon tableau se compose ici de trois valeurs de type String\nlet fruitsDeLhiver = ['pommes', 'poires', 'clémentines'];\n\n// Mon tableau se compose de 4 valeurs de type Number\nlet notesTrimestre1 = [12, 16, 8, 11];"
+    },
+    {
+      "type": "h5",
+      "value": "Lire l'entrée d'un tableau"
+    },
+    {
+      "type": "p",
+      "value": "Avoir un tableau de données c'est bien, mais on aimerai pouvoir utiliser ces données non ? Il faut savoir que chaque entrée d'un tableau a un numéro. On appelle ce numéro un <b>index</b> et les indexs d'un tableau commencent à 0 et non à 1. C'est à dire que pour récupérer l'entrée numéro 1 de mon tableau je vais appeler l'index 0."
+    },
+    {
+      "type": "img",
+      "src": "brain-explode.gif",
+      "alt": "1 = 0"
+    },
+    {
+      "type": "p",
+      "class": "mt-4",
+      "value": "Pour la syntaxe, il suffit d'appeler notre tableau, de mettre des crochets et de lui ajouter l'index souhaité à l'intérieur des corchets:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log( fruitsDeLhiver[0] ); // retourne la valeur 'pommes'\nconsole.log( fruitsDeLhiver[2] ); // retourne la valeur 'clémentines'\nconsole.log( fruitsDeLhiver[3] ); // ERREUR: il n'y a que trois entrées dans mon tableau et comme les index commencent à 0, la 3e entrée est à l'index 2."
+    },
+    {
+      "type": "h5",
+      "value": "Ajouter une entrée à un tableau"
+    },
+    {
+      "type": "p",
+      "value": "Biensûr, tout n'est pas figé. Notre tableau reste une variable, on peut donc le modifier ! Et pour ajouter un entrée à notre tableau, il va falloir utiliser une <b>fonction</b> de Javascript... Tu comprendras plus tard ce qu'est une fonction. Pour l'instant on va juste en utiliser quelques unes... Pour ajouter une entrée dans un tableau, il faut utiliser la fonction <b>push()</b> et y insérer notre valeur à l'intérieur des parenthèses."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// La fonction push() permet d'ajouter une entrée à un tableau\nfruitsDeLhiver.push('oranges');\n\nconsole.log(fruitsDeLhiver); // retourne pommes, poires, clémentines et oranges\n\n// On peut ajouter plusieurs entrées en même temps\nfruitsDeLhiver.push('fruits rouges', 'pamplemousse');"
+    },
+    {
+      "type": "h5",
+      "value": "Supprimer une entrée à un tableau"
+    },
+    {
+      "type": "p",
+      "value": "Comme pour l'ajout d'une entrée, on peut en supprimer. Il y a plusieurs méthodes pour supprimer une entrée: la méthode <b>pop()</b> permet de supprimer la dernière entrée du tableau, la méthode <b>shift()</b> supprimera la première entrée du tableau, et la méthode <b>splice()</b> supprimera l'entrée souhaitée en indiquant son index et combien d'entrée seront supprimées avec elles."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Supprime la derniere entrée\nfruitsDeLhiver.pop(); // supprimera 'pamplemousse'\n\n// Supprime la première entrée\nfruitsDeLhiver.shift() // supprime 'pommes'\n\n// Je re affecte les valeurs par défaut sinon on va se perdre...\nfruitsDeLhiver = ['pommes', 'poires', 'clémentines'];\n\n// Supprime l'entrée choisie\nfruitsDeLhiver.splice(1,0); // supprime 'poires' et pas d'autres entrées après elle"
+    },
+    {
+      "type": "h5",
+      "value": "Savoir le nombre d'entrées d'un tableau"
+    },
+    {
+      "type": "p",
+      "value": "Il peut être intéressant aussi de connaître combien d'entrées a notre tableau... Pour le savoir, on va utiliser la propriété <b>length</b>. On verra plus tard ce qu'est une propriété 😅."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "fruitsDeLhiver = ['pommes', 'poires', 'clémentines'];\n\n// Connaître le nombre d'entrées d'un tableau\nfruitsDeLhiver.length; // retourne 3"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Il existe énormément de fonctions et de propriétés pour manipuler les tableaux. Ca ne sert à rien que je te les montre toutes, tu vas les oublier. Il vaut mieux pour toi que tu cherches sur Google quand tu en auras besoin. Un développeur ne peut pas tout retenir, il doit s'aider de la documentation en ligne, c'est obligatoire !"
+    },
+    {
+      "type": "h4",
+      "value": "Les objets"
+    },
+    {
+      "type": "h5",
+      "value": "Déclarer un objet"
+    },
+    {
+      "type": "p",
+      "value": "On peut dire que les objets sont un peu l'évolution des tableaux. Comme les tableaux, ce sont un type de variable, le type <b>Object</b> et ils permettent de stocker un nombre illimité de valeurs mais la syntaxe est un peu différente."
+    },
+    {
+      "type": "p",
+      "value": "A la différence des tableaux, ils ne fonctionnent pas avec des indexs mais avec une paire de <b>clé / valeur</b>, la <b>clé</b> étant un nom que nous lui avons donné."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Cette syntaxe est appelée le <b>JSON</b>, et elle fonctionne un peu comme le <b>DOM</b>, c'est à dire en arborescence."
+    },
+    {
+      "type": "p",
+      "value": "Allez, je te montre:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let user = {\n  firtName: 'Sarah',\n  lastName: 'Crauche',\n  infos: {\n    phone: '+33712345678',\n    address: '123 rue bidon',\n    city: 'Toulouse',\n    zipcode: 31000,\n    country: 'France'\n  }\n}"
+    },
+    {
+      "type": "p",
+      "value": "Donc là, concrètement, j'ai créé plusieurs clés (firstName, lastName, infos, phone, etc...) et je leur ai attribué une valeur à chacun. Et quand je parlais d'arborescence, on voit bien que phone, address, city, zipcode et country sont les enfants de infos."
+    },
+    {
+      "type": "h5",
+      "value": "Accéder aux attributs d'un objet"
+    },
+    {
+      "type": "p",
+      "value": "Alors maintenant, comment on y accède ? Facile ! Je te disais tout à l'heure que c'était un système de clé/valeur, donc pas besoin de compter les indexs ici ! Il suffit d'appeler <b>sonObjet.saClé</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Récupérer le prénom\nconsole.log(user.firstName + ' ' + user.lastName); // retourne Sarah Croche\n\n// Récupérer la ville\nconsole.log(user.infos.city); // retourne Toulouse"
+    },
+    {
+      "type": "h5",
+      "value": "Modifier un attribut d'un objet"
+    },
+    {
+      "type": "p",
+      "value": "C'est aussi simple que d'accéder à un attribut !"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Modifier le nom de l'utilisateur\nuser.lastName = 'Pèle';\n\nconsole.log(user.firstName + ' ' + user.lastName); // retourne Sarah Pèle"
+    },
+    {
+      "type": "p",
+      "value": "Tu as tout compris ? Très bien ! Passons au cours suivant..."
+    },
+    {
+      "type": "img",
+      "src": "approve-boy.gif",
+      "alt": "Les objets, c'est cool !"
+    }
+  ]
+}

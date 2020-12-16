@@ -8,7 +8,7 @@
      
         <b-col md="12" align-self="end" class="pb-4">
           <b-row class="mb-4">
-            <b-col md="4">
+            <b-col md="10">
               <nuxt-link :to="'/'+chapter.id" v-if="!home" class="badge mb-4">{{ chapter.value }}</nuxt-link>
               <h1 v-html="title"></h1>
             </b-col>

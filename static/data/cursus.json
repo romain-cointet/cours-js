@@ -40,27 +40,27 @@
       },
       { 
         "value": 3, 
-        "text": "Fonctions, tableaux et chaînes de caratères",
-        "resume": ""
+        "text": "Tableaux et objets",
+        "resume": "C'est le moment où je te perds..."
       },
       { 
         "value": 4, 
+        "text": "Conditions, boucles et fonctions",
+        "resume": "T'es encore là ? Parce qu'on est qu'à la moitié du chapitre..."
+      },
+      { 
+        "value": 5, 
         "text": "Apparté sur Git",
         "resume": "Les arbres, toujours les arbres..."
       },
       { 
-        "value": 5, 
-        "text": "Objets et Classes",
-        "resume": "Initiation à la Programmation Orientée Objet"
-      },
-      { 
         "value": 6, 
-        "text": "Le Javascript et le web",
+        "text": "Le Javascript et le web partie 1: Parcourir le DOM",
         "resume": "On va faire autre chose que du console.log(); !"
       },
       { 
         "value": 7, 
-        "text": "Les événements",
+        "text": "Le Javascript et le web partie 2: Les événements",
         "resume": "Réveillons la puissance du JS !"
       },
       { 

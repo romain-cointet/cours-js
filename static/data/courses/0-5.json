@@ -1,0 +1,44 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Apparté sur Git",
+    "resume": "Les arbres, toujours les arbres..."
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Savoir coder c'est bien,"
+      },
+      {
+        "type": "h4",
+        "value": "Mais savoir versionner son code, c'est encore mieux"
+      },
+      {
+        "type": "p",
+        "value": "Dans ce cours, on va voir comment travailler en équipe sans avoir de conflits entre nos codes respectifs grâce au logiciel <b>Git</b>"
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "git-merge.gif",
+        "alt": "Apparté sur Git"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "Développer, c'est mieux à plusieurs"
+    },
+    {
+      "type": "p",
+      "value": ""
+    }
+    
+  ]
+}

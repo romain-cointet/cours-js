@@ -1,0 +1,435 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Conditions, boucles et fonctions",
+    "resume": "T'es encore là ? Parce qu'on est qu'à la moitié du chapitre..."
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "C'est maintenant que le cerveau va chauffer !"
+      },
+      {
+        "type": "h4",
+        "value": "Dans ce chapitre, on va comprendre ce qu'est vraiment l'algorithmie."
+      },
+      {
+        "type": "p",
+        "value": "Il faut réfléchir comme un ordinateur, c'est à dire en binaire: 0 ou 1, vrai ou faux. Quand tu auras compris ça, tu auras tout compris !"
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "0-4.gif",
+        "alt": "Conditions, boucles et fonctions"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "Les conditions"
+    },
+    {
+      "type": "p",
+      "value": "Avoir des variables, c'est bien. Pouvoir les tester, c'est mieux ! Et oui, car comment savoir si un utilisateur de mon site est un client ou un administrateur ? Un client ne doit pas avoir accès à l'interface d'administration de mon site (on appelle ça un <b>back office</b>). Il va bien falloir écrire quelque chose pour vérifier cette <b>condition</b>..."
+    },
+    {
+      "type": "h5",
+      "value": "La condition If"
+    },
+    {
+      "type": "p",
+      "value": "Comment pourrait-on dire ça en français ?<br><i class='text-primary'><b>SI</b> l'utilisateur <b>EST</b> administrateur, <b>ALORS</b> je donne les accès au back office. <br><b>SINON</b> il reste sur le front office.</i>"
+    },
+    {
+      "type": "p",
+      "value": "Mais en développement, on parle en anglais...<br><i class='text-primary'><b>IF</b> user <b>IS</b> administrator, <b>THEN</b> i give back office's access. <br><b>ELSE</b> he stays on front office.</i>"
+    },
+    {
+      "type": "p",
+      "value": "Je pense qu'on est pas loin de la syntaxe Javascript, il ne manque pas grand chose..."
+    },
+    {
+      "type": "p",
+      "value": "Imaginons qu'on ai un objet <b>user</b> avec une clé <b>isAdmin</b> qui est égale à <b>true</b> si c'est un administrateur ou à <b>false</b> si c'est un utilisateur classique. Qu'est-ce que ça pourrait donner en code ?"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let user = {\n  nickname: 'Legolas_du_31',\n  isAdmin: true\n}\n\nif ( user.isAdmin === true ) \n{\n  // La condition est vraie donc je lui donne les accès\n  console.log(user.nickname + ' est un admin!');\n} \nelse \n{\n  // La condition est fausse donc il n'a pas les accès\n  console.log(user.nickname + ' n est pas un admin!'); \n}"
+    },
+    {
+      "type": "p",
+      "value": "Dans l'introduction, je parlais de binaire. On est en plein dedans ! Ma condition correspond à ceci en binaire:<br><i class='text-primary'><b>IF</b> condition <b>IS TRUE</b> THEN ...<br><b>IF</b> (else) condition <b>IS FALSE</b> THEN ...</i>"
+    },
+    {
+      "type": "h5",
+      "value": "La condition Else if"
+    },
+    {
+      "type": "p",
+      "value": "Heureusement, depuis le temps qu'on a créé l'informatique, on ne s'est pas contenté que d'un VRAI ou d'un FAUX. On peut aujourd'hui avoir plusieurs conditions dans un seul IF."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let user = {\n  nickname: 'Legolas_du_31',\n  isAdmin: false,\n  isModerator: true\n}\n\nif ( user.isAdmin === true ) \n{\n  console.log(user.nickname + ' est un admin!');\n} \nelse if ( user.isModerator === true )\n{\n  console.log(user.nickname + ' est un moderateur!');\n}\nelse \n{\n  console.log(user.nickname + ' n est ni un admin ni un moiderateur!'); \n}"
+    },
+    {
+      "type": "h5",
+      "value": "Les opérateurs de comparaison"
+    },
+    {
+      "type": "p",
+      "value": "On va détailler ce qu'il y a écrit dans les parenthèses du <b>if</b>... On vérifie que la valeur de <b>user.isAdmin</b> est bien égale à <b>true</b> grâce aux <b>===</b>. On appelle ces trois égales (égaux ?) <b>un opérateur de comparaison</b>."
+    },
+    {
+      "type": "p",
+      "value": "Pourquoi trois ? On a vu dans les cours précédents qu'un seul égal voulait dire qu'on affectait une valeur à la variable donc ça ne marcherait pas."
+    },
+    {
+      "type": "p",
+      "value": "Et deux alors ? Oui ça marche ! Mais il y a une légère différence entre deux et trois égales. Avec deux on va seulement tester si les deux valeurs sont égales. Alors qu'avec trois, on va aussi tester si les types des deux variables sont les mêmes !"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let a = 2;\nlet b = '2';\n\nif (a == b) {\n  // La condition est vraie, ça passe\n}\n\nif (a === b) {\n  // La condition est fausse car a est un Number et b est un String\n}"
+    },
+    {
+      "type": "p",
+      "value": "Il y a évidemment d'autres comparateurs pour tester nos conditions :"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let a = 2;\nlet b = 3;\n\n// L'opérateur inférieur\nif (a < b) {\n  // Si a plus petit que b\n}\n\n// L'opérateur inférieur ou égal\nif (a <= b) {\n  // Si a plus petit ou égal à b\n}\n\n// L'opérateur supérieur\nif (a > b) {\n  // Si a plus grand que b\n}\n\n// L'opérateur supérieur ou égal\nif (a >= b) {\n  // Si a plus grand ou égal à b\n}\n\n// L'opérateur d'égalité\nif (a == b) {\n  // Si a est égal à b\n}\n\n// L'opérateur de différence\nif (a != b) {\n  // Si a est différent de b\n}\n\n"
+    },
+    {
+      "type": "h5",
+      "value": "Les conditions multiples grâces aux opérateurs logiques"
+    },
+    {
+      "type": "p",
+      "value": "Il est possible de tester plusieurs conditions dans une seule condition grâce aux opérateurs logiques:"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>Le ET: &&</b> pour vérifier si toutes les conditions sont vraies</li><li><b>Le OU: ||</b> pour vérifier si au moins une des conditions est vraie</li><li><b>Le NON: !</b> pour vérifier que la condition n'est pas vraie (on l'a vu plus haut)</li>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let a = 2;\nlet b = 3;\nlet c = false;\n\n// Le ET\nif (a < b && c === false) {\n  // Si a plus petit que b ET que c est faux\n}\n\n// Le OU\nif (a <= b || c == true) {\n  // Si a plus petit ou égal à b OU c est vrai\n}\n\n// Le NON\nif (c !== true) {\n  // Si c est faux et est bien un Boolean\n}"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Ces opérateurs logiques font partis de l'algèbre de Boole. Ce sont des mathématiques directement liés à la logique binaire."
+    },
+    {
+      "type": "h5",
+      "value": "Le Switch"
+    },
+    {
+      "type": "p",
+      "value": "Il existe une autre solution pour tester des conditions: le <b>switch</b>. On l'utilise quand on a beaucoup de cas à tester. Plutôt que de faire des tas de <b>if</b> on va utiliser le switch:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let user = {\n  nickname: 'Legolas_du_31',\n  role: 'administrator'\n}\n\nswitch(user.role) {\n  case 'normal':\n    console.log('est un client');\n    break;\n  case 'moderator':\n    console.log('est un modo');\n    break;\n  case 'administrator':\n    console.log('est un admin');\n    break;\n  default:\n    console.log('utilisateur inconnu');\n}"
+    },
+    {
+      "type": "p",
+      "value": "Le <b>case</b> permet de définir tous les cas possibles. Le <b>break</b> sert à stopper le <b>switch</b> quand il a trouvé une condition vraie. N'oublie pas de mettre le <b>break;</b> à la fin de tes <b>cases</b> sinon le switch va continuer à chercher dans les autres cas. Et le <b>default</b> permet de mettre une condition si rien n'est trouvé."
+    },
+    {
+      "type": "h4",
+      "value": "Les boucles"
+    },
+    {
+      "type": "p",
+      "value": "Après les variables et les conditions, tu es capable de faire pas mal de choses en javascript ! Mais un développeur est un flemmard. Moins il fait de code, mieux il se porte ! C'est pour cela qu'ils ont inventé les <b>boucles</b> qui permettent de répéter une ligne de code autant de fois que l'on veut. Dans quel but ?..."
+    },
+    {
+      "type": "h5",
+      "value": "La boucle for"
+    },
+    {
+      "type": "p",
+      "value": "...Reprenons nos tableaux."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let moyensDePaiement = ['CB', 'PayPal', 'Apple Pay'];"
+    },
+    {
+      "type": "p",
+      "value": "Admettons que je veuille afficher tous les moyens de paiements de mon site. Je pourrai les appeler un par un avec leur index respectif..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "moyensDePaiement[0];\nmoyensDePaiement[1];\nmoyensDePaiement[2];\n"
+    },
+    {
+      "type": "p",
+      "value": "Mais ça m'oblige de un à écrire chaque ligne une par une et de deux, à connaître combien d'entrées j'ai dans mon tableau. Pas super efficace... Et si au lieu de ça, il existait un moyen de lire automatiquement chaque entrée et d'arrêter la lecture à la fin du tableau ?"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "for (let i = 0; i <b moyensDePaiement.length; i++) {\n  console.log(i, moyensDePaiement[i]);\n}"
+    },
+    {
+      "type": "p",
+      "value": "Boom !"
+    },
+    {
+      "type": "img",
+      "src": "what.gif",
+      "alt": "La boucle for"
+    },
+    {
+      "type": "p",
+      "class": "mt-4",
+      "value": "Fais pas cette tête, on a déjà vu 99% du code écrit au dessus ! Allez je décortique: <b>for</b> veut dire <b>pour</b> donc POUR la condition qui se trouve à l'intérieur de mes parenthèses, le code s'effectuera. Et qu'est-ce qu'il se trouve dans les parenthèses ?"
+    },
+    {
+      "type": "p",
+      "value": "En premier il y a une déclaration de variable <b>i</b> à zéro car on veut commencer au début de notre tableau donc avec son index à zéro, rappelle toi."
+    },
+    {
+      "type": "p",
+      "value": "Puis une condition: ma variable <b>i</b> plus petit que la taille de mon tableau. C'est à dire que si ma variable est égale ou supérieure à la taille de mon tableau, on arrête la boucle. Sinon, elle ne s'arrêterait jamais et ça ferait une boucle infinie... Je ne vous le souhaite pas..."
+    },
+    {
+      "type": "p",
+      "value": "Puis <b>i++</b> qui veut dire qu'on augmente de 1 la variable <b>i</b>."
+    },
+    {
+      "type": "p",
+      "value": "Donc je résume, tant que <b>i</b> n'atteint pas la taille du tableau, on incrémente <b>i</b> de 1. Et dans ma boucle, j'affiche mon tableau avec comme index ma variable <b>i</b>. Ce qui fait que ma boucle va boucler 3 fois (la taille de mon tableau) et <b>i</b> va avoir la valeur 0, puis 1, puis 2. Donc mon console.log affiche bien mes trois valeurs !"
+    },
+    {
+      "type": "p",
+      "value": "Allez, on va voir qu'une autre boucle fait la même chose et de manière plus lisible. J'avoue que je ne la connaissais pas moi même... Honte sur moi !"
+    },
+    {
+      "type": "h5",
+      "value": "La boucle for in"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "for (let i in moyensDePaiement) {\n  console.log(moyensDePaiement[i]);\n}"
+    },
+    {
+      "type": "p",
+      "value": "Ici, plus besoin de toutes ces lignes qui font mal au crâne. Il suffit juste de déclarer une variable d'incrémentation (ici <b>i</b>) et de lui dire d'aller dans notre tableau grâce à <b>in</b>."
+    },
+    {
+      "type": "h5",
+      "value": "La boucle for of"
+    },
+    {
+      "type": "p",
+      "value": "Dans le cas où on n'aurait pas besoin de connaître l'itération actuelle (<b>i</b>) de la boucle, on peut utiliser la boucle <b>for of</b> où il suffit simplement de définir une variable qui représentera l'objet du tableau dans l'itération actuelle de la boucle:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "for (let leMoyenDePaiement of moyensDePaiement) {\n  console.log(leMoyenDePaiement);\n}"
+    },
+    {
+      "type": "h5",
+      "value": "La boucle while"
+    },
+    {
+      "type": "p",
+      "value": "La dernière boucle existante est la boucle <b>while</b> qui veut literralement dire <b>tant que</b>. Il faut lui ajouter une condition et le tour est joué :"
+    },
+    {
+      "type": "p",
+      "value": "<i>Tant que ma condition est vraie, je continue ma boucle.</i>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "while (moyensDePaiement != 'Apple Pay') {\n  console.log('ok');\n}"
+    },
+    {
+      "type": "h4",
+      "value": "Les fonctions"
+    },
+    {
+      "type": "p",
+      "value": "Les boucles c'est pas mal niveau flemmardise mais les fonctions c'est encore mieux !"
+    },
+    {
+      "type": "p",
+      "value": "Une fonction sert à appeler un bout de code où l'on veut. Par exemple, sur ma page je dois afficher à deux endroits différents le nom de l'utilisateur. Je pourrai l'écrire à ces deux endroits mais le jour où je dois effectuer une correction sur ce code, je devrai le corriger aux deux endroits..."
+    },
+    {
+      "type": "p",
+      "value": "Je vais donc créer une fonction qui affiche le nom de l'utilisateur et je l'appellerai aux deux endroits voulus."
+    },
+    {
+      "type": "h5",
+      "value": "Déclarer une fonction"
+    },
+    {
+      "type": "p",
+      "value": "Pour déclarer une fonction, on va utiliser le mot clé <b>function</b> suivi d'un nom qu'on donnera à notre fonction. Dans cet exemple où je veux afficher le nom de mon utilisateur, je pourrai très bien l'appeler <b>showFullName</b> mais tu peux l'appeler comme tu veux !"
+    },
+    {
+      "type": "p",
+      "value": "À la suite du nom de ma fonction, je vais lui ajouter une parenthèse ouvrante et une parenthèse fermante. Ces parenthèses servent à insérer des variables externes à ma fonction pour lui donner des informations, on appelle ça des <b>paramètres</b> ou des <b>arguments</b> et je peux en mettre autant que je veux en les séparant par des virgules à l'intérieur de mes parenthèses. Dans notre exemple, je peux lui dire qu'il recevra une variable <b>user</b> en paramètre qui contiendra le nom et le prénom de mon utilisateur pour que ma fonction puisse l'afficher. Mais il n'est pas obligatoire d'avoir des paramètres dans une fonction."
+    },
+    {
+      "type": "p",
+      "value": "Et pour finir, on ouvre les accolades, et on va insérer tout le code que l'on veut pour le traitement de notre fonction. Je n'oublie pas de refermer l'accolade ! Et une fois que ma fonction est écrite, il faut que je l'appelle pour qu'elle soit exécutée. Allez, on voit ce que ça pourrait donner !"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// La variable de mon utilisateur\nlet myUser: {\n  firstname: 'Jeanne',\n  lastname: 'Dark'\n}\n\n//La déclaration de ma fonction\nfunction showFullName( user ) {\n  return user.firstname + ' ' + user.lastname;\n}\n\n// L'appel de ma fonction sinon, elle ne pourra pas effectuer ses traitements\nlet fullName = showFullName( myUser ); // retourne 'Jeanne Dark'"
+    },
+    {
+      "type": "p",
+      "value": "Ici, c'est la variable <b>myUser</b> qui est envoyée en paramètre de ma fonction. Donc pour lui, le paramètre <b>user</b> sera égal à la variable </b>myUser</b>."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Une fonction renvoie toujours une valeur grâce au mot clé <b>return</b>. Dans notre cas, elle retourne le nom complet de notre utilisateur en concaténant son prénom et son nom."
+    },
+    {
+      "type": "p",
+      "value": "On peut utiliser des fonctions pour n'importe quoi. Le but est qu'on puisse la réutiliser à plusieurs endroits pour nous faciliter le développement de notre code."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Multiplie deux nombres\nfunction multiplicateur ( nombre1, nombre2 ) {\n  return nombre1 * nombre2;\n}\n\nlet resultat = multiplicateur (2, 3); // retourne 2*3 = 6"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Dire bonjour\nfunction hello () {\n  return 'Hello !';\n}\n\nlet resultat = hello (); // retourne 'Hello'"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Savoir si un nombre est pair ou impair\nfunction isPair ( number ) {\n  if (number % 2 === 0) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nlet response = isPair (2); // retourne true, donc 2 est pair"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Dans ce dernier exemple, j'utilise le <b>%</b> pour savoir si un nombre est pair ou impair. Le <b>%</b> est appelé le <b>modulo</b>. C'est en fait le reste d'une division. Si mon reste est égal à zéro, cela veut dire que mon nombre est pair. Sinon il est impair."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Savoir si le nombre est pair ou impair, version améliorée\nfunction isPair ( number ) {\n  return number % 2 === 0 ? true : false;\n}\n\nlet response = isPair (3); // retourne false, donc 3 est impair"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> On peut simplifier le code de notre fonction (on appelle ça <b>factoriser du code</b>) en utilisant les <b>conditions ternaires</b>. C'est exactement la même chose qu'au dessus sauf qu'on a factoriser notre condition en une seule ligne. D'abord ma condition <b>number % 2 === 0</b>, puis une point d'interrogation qui veut dire qu'on ouvre les accolades. Puis la valeur de retour si ma condition est vraie. Et on termine par un deux points qui veut dire le <b>else</b> avec sa valeur de retour quand la condition est fausse."
+    },
+    {
+      "type": "img",
+      "src": "leave.gif",
+      "alt": "Les conditions ternaires"
+    },
+    {
+      "type": "h5",
+      "class": "mt-8",
+      "value": "Les fonctions de Javascript"
+    },
+    {
+      "type": "p",
+      "value": "Comme tout bon développeur qui se respecte, les développeurs qui ont inventé Javascript sont aussi des gros flemmards et ils ont donc créé tout un tas de fonctions pour faciliter la vie au futur développeur que tu es. Et on en a déjà utilisé plusieurs !"
+    },
+    {
+      "type": "p",
+      "value": "La fonction <b>push()</b> ou la fonction <b>pop()</b> par exemple pour le traitements de nos tableaux. Et bien ce sont des fonctions directement ajoutées dans le code de Javascript pour permettre de faire gagner du temps au développement d'une application web."
+    },
+    {
+      "type": "p",
+      "value": "Il y en a énormément et ça ne servirait à rien que je te les liste... Ça sera à toi de les chercher sur l'Internet quand tu auras besoin d'un traitement en particulier."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Un développeur qui se respecte passe sa vie à chercher des solutions aux problèmes qu'il rencontre dans son code. C'est pourquoi <b>Google</b> sera ton meilleur ami, ainsi que le site <b>StackOverflow</b> qui apparaîtra 99% du temps en top 1 de tes recherches Google."
+    },
+    {
+      "type": "h4",
+      "value": "Le scope d'une variable"
+    },
+    {
+      "type": "p",
+      "value": "On termine ce cours par un petit apparté sur le <b>scope</b> des variables. Le scope d'une variable est sa zone d'action. Une variable (ou une constante) ne peut être comprise par Javascript qu'à l'intérieur du <b>bloc</b> où elle a été créée."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> On appelle un bloc, une partie du code comprise entre deux accolades."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "if (1 == 1) {\n  // Intérieur de mon bloc\n}"
+    },
+    {
+      "type": "p",
+      "value": "Donc une variable déclarée dans une condition, une boucle ou une fonction ne sera comprise qu'à l'intérieur de celle ci. A contrario, une variable créée à l'exterieur d'un bloc sera comprise dans un bloc la succédant."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let myAge = 31;\n\nif (myAge >= 30) {\n  console.log('tu peux rentrer, tu as ' + myAge + ' ans !';\n  // Ok: myAge est déclarée à l'extérieur du bloc de mon if \n} else {\n  let ageMinimal = 30;\n  console.log('Tu es trop jeune, tu dois avoir au minimum ' + ageMinimal + ' ans pour rentrer...'; \n  // Ok: ageMinimal est déclarée dans le même bloc\n}\n\nconsole.log(ageMinimal); \n// Erreur: ageMinimal est undefined car elle est déclarée dans un bloc \n// et Javacript n'y a donc pas accès à l'extérieur de ce bloc"
+    },
+    {
+      "type": "p",
+      "value": "Tu tomberas forcément au moins une fois sur une erreur de scope quand tu coderas. Le tout est de se rappeler qu'une variable ou un constante est définit dans un scope."
+    },
+    {
+      "type": "p",
+      "value": "Je pense que c'est suffisant pour aujourd'hui. Tu risques de faire des cauchemards sur Javascript, mais je te rassure, ça finit par passer..."
+    },
+    {
+      "type": "img",
+      "src": "flashback.gif",
+      "alt": "Scope des variables"
+    },
+    {
+      "type": "p",
+      "class": "mt-8",
+      "value": "<span class='spoil'>SPOIL</span> Dans le prochain cours, on ne fera pas de Javascript ! ;)"
+    }
+  ]
+}
