@@ -37,8 +37,461 @@
     },
     {
       "type": "p",
-      "value": ""
+      "value": "Jusqu'à maintenant on testait notre code uniquement sur notre ordinateur mais arrivera le jour où tu intègreras une équipe avec plusieurs développeurs et où tu devras envoyer ton code sur un serveur qui contiendra aussi le code des autres développeurs de ton équipe. Et c'est là qu'arrivent les problèmes..."
+    },
+    {
+      "type": "p",
+      "value": "Imagine que ton collègue et toi travaillez sur le même fichier <b>functions.js</b> qui contient la plupart des fonctions du site web de l'entreprise. Toi, tu dois coder certaines fonctions et lui d'autres. Une fois que vous avez finit, vous envoyez votre code sur le serveur chacun de votre côté. Mais comment savoir quel code garder, quel code supprimer ou encore comment garder les deux ?"
+    },
+    {
+      "type": "p",
+      "value": "C'est là que <b>Git</b> vient faire son job. Git est un outil de versionning, c'est à dire qu'il va s'occuper de toute la gestion du code de l'application en conservant les différentes versions des fichiers et leur historique. Plutôt pas mal quand on s'aperçoit que le code qu'on a envoyé la veille fait planter tout le site... Il suffira de revenir à la version précédente du code le temps qu'on trouve d'où vienne le bug."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Je ta rassure, en général il y a toute une étape de <b>Tests</b> et de <b>Code Review</b> avant de <b>mettre en prod</b>. On verra ce que veulent dire ces termes plus tard."
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Installer Git"
+    },
+    {
+      "type": "p",
+      "value": "La première chose à faire est d'installer Git sur son ordinateur. Pour cela, il faut te rendre sur son <a href='https://git-scm.com/downloads' target='_blank'>site officiel</a>, télécharger Git et l'installer."
+    },
+    {
+      "type": "p",
+      "value": "À présent que Git est installé, on va le laisser de côté et essayer de comprendre comment tout ça marche."
+    },
+    {
+      "type": "h5",
+      "value": "Initialiser Git"
+    },
+    {
+      "type": "p",
+      "value": "Une fois Git installé, il faut ouvrir Git Bash si celui ci a été installé avec Git ou un invité de commande sur son ordinateur (Terminal sur Mac et Linux, Invité de commande sur Windows). Une fois le terminal ouvert, on va déjà vérifier que tu as intallé Git. Pour cela, on va verifier sa version en écrivant ceci (et en tappant sur la touche Entrer)..."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "git --version"
+    },
+    {
+      "type": "p",
+      "value": "Si une version s'affiche dans le terminal, c'est que Git est bien installé. Si une erreur s'affiche, c'est que tu n'as pas Git d'installé... Donc installe le !"
+    },
+    {
+      "type": "p",
+      "value": "À présent on va initialiser Git en configurant son nom et son adresse email. Un peu plus loin, on créera un compte Github, pensez à mettre les même informations."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "git config --global user.name \"Mon Nom\"\ngit config --global user.email mon@email.com"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Le <b>--global</b> permet de ne renseigner ces informations qu'une seule fois, sinon on serai obligé de le faire à chaque utilisation de Git..."
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Avoir un serveur pour envoyer son code"
+    },
+    {
+      "type": "p",
+      "value": "Maintenant qu'on a Git sur son ordinateur, il va bien falloir dire à Git où envoyer son code... Il y a plusieurs plateformes pour envoyer son code sur un serveur. La plus connue est <a href='https://github.com/' target='_blank'>Github</a>. Tu vas te créer un compte dessus avec le même nom et la même adresse email qu'au dessus et tu auras un serveur gratuit pour envoyer ton code."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> En général, les entreprises ont leur propre Github et elles vous enverront une invitation pour le rejoindre."
+    },
+    {
+      "type": "p",
+      "value": "C'est grâce à des plateformes comme Github que l'on peut collaborer facilement sur différents projets (et pas seulement du web). Énormément de projets sont en accès libres et leur propriétaire autorise l'accès au code source gratuitement afin de disposer de l'aide d'autres développeurs pour finaliser leur projet. Ahhh... Le monde du dev est une si belle communauté libre et gratuite..."
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Les dépots et les branches de Git"
+    },
+    {
+      "type": "p",
+      "value": "Pour comprendre comment fonctionne Git, il faut imaginer un arbre. Son tronc est la branche principale, c'est là que ton code validé se trouvera. On appelle cette branche, la branche <b>Master</b> et il ne faut jamais coder directement sur cette branche. Pourquoi ? Car c'est en général la branche Master qui est utilisée pour pour envoyer le code en ligne sur un site. On appelle la version de ce code en ligne <b>la Production</b>. Donc autant te dire que si tu modifies directement la branche Master sans qu'elle ai été testée et que ton Responsable Technique fait une mise en prod (donc une mise en ligne) juste après ça, tu risques de te faire taper sur les doigts..."
+    },
+    {
+      "type": "p",
+      "value": "Afin d'éviter ce problème, on peut (et on doit) créer d'autres branches à notre arbre. Généralement, il y a deux grosses branches principales:"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>La branche Master:</b> c'est donc là que le code final et validé se trouve. Seul le Responsable Technique y touche généralement pour éviter tout problème.</li><li><b>La branche Dev:</b> c'est en gros ici que tout le code envoyé par les développeurs atterrira. Je dis en gros car en réalité, tu ne toucheras pas non plus à cette branche mais à ses branches enfants. Et oui, car c'est cette branche Dev qui servira de modèle pour la branche Master.</li><li>Il peut également y avoir une branche <b>Test</b> entre la branche Master et la branche Dev, pour effectuer tous les tests possibles avant de l'envoyer sur Master."
+    },
+    {
+      "type": "p",
+      "value": "Revenons à nos moutons, tu ne toucheras pas à la branche Dev non plus. En fait, toi, futur grand développeur.se que tu es, tu vas envoyer ton code dans des sous branches de la branche Dev. Ces branches n'ont pas de noms génériques comme Master ou Dev. On les nomme généralement du nom de la feature sur laquelle on travaille. Exemple: La branche <i>user_login</i>, la branche <i>home_page</i>, la branche <i>gestion_du_panier</i>, etc..."
+    },
+    {
+      "type": "p",
+      "value": "Une fois que la feature est terminée, tu demanderas l'autorisation pour fusionner ta branche avec la branche Dev. On appelle cette demande une <b>Pull Request</b> et on appelle une fusion, un <b>merge</b> C'est en général là qu'arrivent les conflits (Cf. mon premier gif...)."
+    },
+    {
+      "type": "p",
+      "value": "Pour que cette histoire de branches soit plus claire, voici un schéma qui résume bien les choses."
+    },
+    {
+      "type": "img",
+      "class": "width-full mt-4",
+      "src": "git-branch.png",
+      "alt": "Les dépots et les branches de Git"
+    },
+    {
+      "type": "p",
+      "class": "mt-8",
+      "value": "Sur ce schéma, on voit bien que la branche Master est le tronc/la racine de notre projet. De cette branche Master sort la branche Dev (ou Develop) dès la première version de notre projet. Et de cette branche Dev, sortent de multiples branches Feature qui viendront se regreffer à notre branche Dev une fois qu'elles seront terminées grâce à un merge d'une Pull Request. La seule chose qu'on ne voit pas sur ce graph, c'est le merge de la branche Dev vers la branche Master mais c'est le même principe que pour les branches Features et Dev."
+    },
+    {
+      "type": "p",
+      "value": "Et toutes ces branches sont évidemment stoquées quelque part, on appelle cela un <b>dépot</b> (ou un <b>repository</b> en anglais) ou plus communément entre devs un <b>repo</b>."
+    },
+    {
+      "type": "p",
+      "value": "Pour résumer, toi, développeur.se, tu créeras des branches pour les features du projet à partir de la branche Dev et quand tu auras terminé la feature, tu demanderas une Pull Request pour merger ton code sur la branche Dev. Et c'est tout ! Le reste, c'est le  Responsable Technique (ou le Lead Dev, ou le Dev Senior) qui s'en chargera !"
+    },
+    {
+      "type": "p",
+      "value": "Maintenant que c'est clair (et j'en suis sûr...), on va passer à la pratique."
+    },
+    {
+      "type": "h4",
+      "value": "Création de son premier Repo"
+    },
+    {
+      "type": "p",
+      "value": "On va retourner sur Github (et se connecter si ce n'est pas déjà fait) et on va aller dans la section <b>Repositories</b>. Maintenant on va cliquer sur <b>New</b>, là une nouvelle page s'affiche avec un formulaire."
+    },
+    {
+      "type": "p",
+      "value": "La première étape est de donner un nom à notre repo. On a qu'à l'appeler <b>premier-repo</b>. On peut lui ajouter une description mais ce n'est pas utile pour le moment. On va laisser ce repo en <b>Public</b>, cela veut dire que tout le monde pourra y avoir accès et on va cliquer sur le bouton <b>Create repository</b>."
+    },
+    {
+      "type": "p",
+      "value": "Félicitation, ton premier repo est créé ! Maintenant, il va falloir l'installer sur son ordinateur pour pouvoir commencer à coder et ensuite envoyer ce code sur ce repo."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Car oui, tout le code que tu écriras sur ton ordinateur ne sera que sur ton ordinateur tant que tu ne diras pas à Git de l'envoyer sur ton repo !"
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Clôner son repo sur son ordinateur"
+    },
+    {
+      "type": "h5",
+      "value": "Choisir un emplacement pour ses repos"
+    },
+    {
+      "type": "p",
+      "value": "La première chose à faire avant de récupérer son repository et de choisir où on va le mettre sur son ordinateur... Admettons que je veuillles le mettre dans le dossier <b>Documents/Projets</b>. Je prends soin de créer le dossier <b>Projet</b> dans <b>Documents</b> et je retourne ensuite sur mon terminal."
+    },
+    {
+      "type": "p",
+      "value": "Pour me déplacer de dossiers en dossiers via les lignes de commande, il faut utiliser la commande <b>cd</b>. Normalement, le terminal devrait automatiquement vous placer dans le dossier de votre compte de votre ordinateur. Le dossier <b>Documents</b> est donc au même endroit."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Cette ligne est un commentaire en ligne de commande\n\n# Aller dans Documents\ncd Documents\n# Aller dans Projets\ncd Projets\n\n# Ou en une seule ligne\ncd Documents/Projets"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Se déplacer dans un dossier enfant\ncd monDossier\n\n# Revenir dans un dossier parent\ncd ../\n\n# Revenir à la racine\ncd ./"
+    },
+    {
+      "type": "h5",
+      "value": "Clôner son repo"
+    },
+    {
+      "type": "p",
+      "value": "Vérifie que tu te trouves bien dans le dossier <b>Projet</b>... Si c'est le cas, on va retourner sur la page Github de notre repo et copier l'adresse qu'il y a dans l'encart <b>Quick setup</b>. De retour dans le terminal je vais coller l'adresse, précédé de <b>git clone</b>."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "git clone https://github.com/mon-pseudo/mon-repo.git"
+    },
+    {
+      "type": "p",
+      "value": "Que s'est-il passé ? Si on regarde dans notre dossier <b>Projets</b>, on voit qu'un dossier <b>premier-repo</b> a été créé. C'est donc notre repository Github qui vient d'être clôné sur notre ordinateur !"
+    },
+    {
+      "type": "p",
+      "value": "Retournons dans notre terminal et écrivons ces deux lignes de commande :"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je me rends dans mon dossier repository\ncd premier-repo\n\n# Je veux voir le status de mon repository\ngit status"
+    },
+    {
+      "type": "p",
+      "value": "Le <b>git status</b> va m'afficher le status actuel de mon repository :"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "On branch master\n\nNo commits yet\n\nnothing to commit (create/copy files and use \"git add\" to track)"
+    },
+    {
+      "type": "p",
+      "value": "On peut y lire que nous sommes sur la branche <b>master</b>, qu'il n'y a pas encore de <b>commits</b> et qu'il n'y a rien à <b>commit</b>. On va voir ce que ce terme signifie."
+    },
+    {
+      "type": "p",
+      "value": "Donc on a bien clôner notre repository Github sur notre ordinateur ! Félicitations !"
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Travailler sur son repository"
+    },
+    {
+      "type": "p",
+      "value": "On va retourner dans notre IDE préféré et ouvrir notre dossier <b>premier-repo</b>. On va y créer un fichier <b>index.html</b> et un fichier <b>app.js</b>"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log('Coucou');"
+    },
+    {
+      "type": "p",
+      "value": "Lance ton fichier <b>index.html</b> sur ton navigateur préféré et ouvre la console pour vérifier que le console.log marche bien. Si tout est bon, on va retourner sur notre terminal et refaire un <b>git status</b> pour voir ce qu'il s'est passé..."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "git status"
+    },
+    {
+      "type": "p",
+      "value": "Et le terminal nous retourne..."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "On branch master\n\nNo commits yet\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n    app.js\n    index.html\n\nnothing added to commit but untracked files present (use \"git add\" to track)"
+    },
+    {
+      "type": "p",
+      "value": "Si on compare à notre dernier <b>git status</b>, on peut voir qu'il y a la partie <b>Untracked files</b> qui est apparue avec une liste de fichier, en l'occurence <b>app.js</b> et <b>index.html</b>. Cela veut dire que Git a trouvé des nouvelles modifications par rapport à la dernière fois où on a mis à jour notre repository (qui était dans notre cas le <b>git clone</b>)."
+    },
+    {
+      "type": "h5",
+      "value": "Envoyer son travail sur le repo"
+    },
+    {
+      "type": "p",
+      "value": "Imaginons que notre travail est terminé pour le moment, et que l'on souhaite envoyer notre travail sur le repository de Github. Dans l'ordre, je vais devoir:"
+    },
+    {
+      "type": "ul",
+      "value": "<li>Ajouter mes fichier à la liste d'envoi</li><li>Enregistrer mon travail sur la branche courante (<b>master</b> dans notre cas)</li><li>Récupérer les dernières modifications au cas où il y aurait eu des ajouts sur le repos pendant que nous développions notre feature (dans notre cas, on est tout seul sur le repo mais quand tu travailleras en équipe, ça arrivera souvent que les autres développeurs.ses envoie des modifications avant toi. Il faudra donc les récupérer pour pouvoir envoyer les tiennes sans créer de conflits).</li><li>Et envoyer nos modifications sur le repository.</li>"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# J'ajoute mes fichiers à la liste d'envoi\n# Le -A veut dire que j'ajoute TOUS les fichiers \n# mais j'aurais très bien pu les ajouter un par un si je souhaite \n# que certains fichiers ne soient pas ajoutés\ngit add -A\n# Ou un par un\ngit add index.html\ngit add app.js"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# J'enregistre mon travail sur la branche courante \n# avec un message pour dire ce que j'ai fait\n# le -m veut dire que l'on ajoute un message\ngit commit -m \"Ajout de index.html et app.js\""
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je récupère les dernières modifications\n# Dans notre cas, ce n'est pas très utile\ngit pull"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# J'envoie mes modifications sur la branche de mon repository\ngit push"
+    },
+    {
+      "type": "p",
+      "value": "Normalement, tout s'est bien passé, tu as effectué ton premier push avec Git ! Allons voir ce qu'il y a sur notre page Github... Revenons à l'accueil de notre repo et magie, on voit bien que nos deux fichiers apparaissent sur la page ! On peut y voir aussi d'autres infos:"
+    },
+    {
+      "type": "ul",
+      "value": "<li>La branche actuelle</li><li>Qui a fait le dernier push et quand</li>"
+    },
+    {
+      "type": "h5",
+      "value": "Travailler sur une branche à part"
+    },
+    {
+      "type": "p",
+      "value": "Prochaine étape, ajouter un titre à notre page (attention, grosse feature !!). Tu te rappelles de ce que j'ai dit tout à l'heure ? On ne travaille jamais sur la branche <b>master</b> ! Donc maintenant qu'on a une base valide pour notre projet, on va créer une nouvelle branche pour continuer à coder sans impacter notre base valide."
+    },
+    {
+      "type": "p",
+      "value": "Avant toute chose, on va récupérer les dernières modifications de notre projet pour travailler sur une nouvelle branche à jour. Oui je sais, tu es seul sur le projet donc tu es le seul à faire des modifs mais il faut prendre les bonnes habitudes car quand tu seras avec une équipe, oublier de faire un pull te vaudra sûrement de ramener les chocolatines le lendemain ! (En vrai c'est pas si grave que ça. Git te préviendra que ta branche n'est pas à jour avant de faire une manipulation)"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je vérifie que je n'ai pas fait de modification entre temps\n# (et si c'est le cas, je les envoie)\ngit status\n\n# je mets à jours ma branche\ngit pull"
+    },
+    {
+      "type": "p",
+      "value": "Maintenant que je suis à jour, je vais pouvoir créer ma branche."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Normalement, on devrait créer une branche <b>dev</b> et ensuite les autres branches depuis <b>dev</b> pour les features mais pour ces exemples, on va simplement créer nos features depuis la branche <b>master</b> et ne pas créer de branche <b>dev</b>, ca sera plus simple à comprendre."
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je crée ma nouvelle branche\ngit branch titre_homepage\n# Ici, titre_homepage est le nom de ma nouvelle branche\n\n# Je veux afficher la liste de mes branches\ngit branch\n\n# Resultat de git branch\n* master\n  titre_homepage"
+    },
+    {
+      "type": "p",
+      "value": "En faisant <b>git branch</b>, je vois bien que ma branche <b>titre_homepage</b> a été créée mais que je suis toujours sur <b>master</b> (la petite étoile devant le nom d'une branche signifie qu'on se trouve dessus). Il faut donc que j'aille sur ma nouvelle branche !"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je change de branche\ngit checkout titre_homepage\n\n# Resultat\nSwitched to branch 'titre_homepage'"
+    },
+    {
+      "type": "p",
+      "value": "Si je refais un <b>git branch</b>, je vois bien que je me trouve à présent sur la branche <b>titre_homepage</b>. Je vais donc pouvoir commencer à travailler sur ma nouvelle feature qui est d'ajouter un titre à ma page !"
+    },
+    {
+      "type": "p",
+      "value": "Allez, on ajoute notre magnifique titre sans style..."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <h1>Mon super titre sans style</h1>\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "p",
+      "value": "... Et on l'envoie sur le repo. Oui, c'était une feature de malade !"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je vérifie que mes modifications sont comprises\ngit status\n\n# Je les ajoute à mon futur commit\ngit add -A\n\n# J'enregistre mon commit\ngit commit -m \"ajout du titre\"\n\n# Je récupère les dernières nouveautés au cas où il y en ai\ngit pull\n\n# J'envoie mon commit au repo\ngit push"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Vu qu'on a créé une nouvelle branche, il est fort possible que pour le premier <b>push</b>, Git vous demande un push spécial avec une ligne de commande affichée <b>git push --set-upstream origin titre_homepage</b>. Il suffira de copier coller cette ligne de commande dans le terminal et cela marchera ;). Pour les prochains push, un simple <b>git push</b> suffira."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Si on revient sur la page de notre repository Github (et qu'on rafraichit la page), on peut voir qu'on peut choisir sa nouvelle branche et y apercevoir les derniers ajouts."
+    },
+    {
+      "type": "h5",
+      "value": "Fusionner sa branche avec la branche parent"
+    },
+    {
+      "type": "p",
+      "value": "Maintenant que notre feature est terminée et envoyée sur le repo (et qu'on a testé que tout fonctionnait bien!), on va vouloir envoyer ces modifications vers la branche parent (<b>dev</b> normalement mais dans notre cas <b>master</b>). On appelle ça <b>fusionner</b> deux branches."
+    },
+    {
+      "type": "p",
+      "value": "Faisons ça comme si nous étions dans une équipe: pour fusionner deux branches, un développeur doit demander l'autorisation à son responsable. Et oui, fusionner deux branches implique de grandes responsabilités ! Ton code peut tout faire planter ! Raison de plus pour tout tester avant de faire la demande. On appelle cetet demande une <b>Pull Request</b>."
+    },
+    {
+      "type": "p",
+      "value": "Pour effectuer une Pull Request, rends toi sur la page Github du repo, clique sur l'onglet <b>Pull request</b>. Cette page liste toutes les Pull Request demandées par l'équipe (ici, il n'y en a aucune forcément). Cliques sur le bouton <b>New pull request</b>, choisis les deux branches que tu veux fusionner (en premier celle qui recevra les modifications, on appelle ça la <b>base</b> et en second celle qui contient les modifications qu'on appelle la <b>compare</b>) donc dans notre cas <b>master</b> en base et <b>titre_homepage</b> en compare. Github va te dire si c'est possible ou pas (normalement oui) et te détaillant les modifications qui seront apportées grâce à la fusion. Clique sur le bouton <b>Create pull request</b>, là un formulaire s'affiche. Tu peux y ajouter un titre et des commentaires pour ton responsable qui validera ou pas ta demande. Et pour finir clique sur le bouton <b>Create pull request</b>."
+    },
+    {
+      "type": "p",
+      "value": "La Pull Request est créée et tu peux voir que ta branche <b>titre_homepage</b> n'a pas de conflit avec <b>master</b>. Étant donné que tu es seul sur ce projet, tu vas cliquer sur le bouton <b>Merge pull request</b> et <b>Confirm merge</b> mais sache que normalement c'est à ton responsable de le faire."
+    },
+    {
+      "type": "p",
+      "value": "Voilà, la fusion vers <b>master</b> est terminée ! De retour dans ton terminal, si tu change de branche vers <b>master</b>,"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je reviens sur la branche master\ngit checkout master"
+    },
+    {
+      "type": "p",
+      "value": "et que tu actualise la page index.html de ton projet sur ton navigateur, tu verras que... rie n'a changé ! Mais où est ton titre ? On a bien fusionné les branches pourtant..."
+    },
+    {
+      "type": "p",
+      "value": "C'est parce qu'il faut mettre à jour ta branche <b>master</b> de ton ordinateur avec celle du repository !"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je mets à jour master\ngit pull"
+    },
+    {
+      "type": "p",
+      "value": "Actualise ta page web ou regarde le code de ton fichier <b>index.html</b>: magique ! On a notre page mise à jour avec notre super titre sans style sur notre branche <b>master</b>!"
+    },
+    {
+      "type": "h5",
+      "value": "Fusionner sa branche avec la branche parent"
+    },
+    {
+      "type": "p",
+      "value": "Comme je sais que tu es curieux.se et que tu te demandes ce qu'il se passe quand on fait une pull request, je vais te détailler les lignes de commandes effectuées par Github:"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "# Je vais sur master\ngit checkout master\n\n# Je mets à jour master\ngit pull\n\n# Je vais sur titre_homepage\ngit checkout titre_homepage\n\n# Je mets à jour titre_homepage\ngit pull\n\n# Je merge master sur titre_homepage\ngit merge master\n\n# je vais sur master\ngit checkout master\n\n# Je merge titre_homepage vers master\ngit merge titre_homepage\n\n# Je push les modifications\ngit add -A\ngit commit\ngit pull\ngit push"
+    },
+    {
+      "type": "p",
+      "value": "Voilà en gros ce que Github effectue lors d'une pull request. Tu peux très bien le faire à la main si tu travailles seul, ça reviendra au même qu'une Pull Request mais comme ça tu connais les bases du travail en équipe."
+    },
+    {
+      "type": "p",
+      "value": "Je ne vais pas t'en dire plus sur Git même si il y a de quoi faire un bouquin entier. Tu as les bases pour travailler en équipe et c'est largement suffisant pour le moment. Dans le prochain cours, on revient sur Javascript et pas des moindres, on va enfin manipuler le DOM !"
     }
-    
   ]
 }
