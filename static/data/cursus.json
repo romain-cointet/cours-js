@@ -96,6 +96,16 @@
         "value": 2, 
         "text": "Optimisation du code",
         "resume": ""
+      },
+      { 
+        "value": 3, 
+        "text": "Aperçu des tests et méthodes de débogage",
+        "resume": ""
+      },
+      { 
+        "value": 4, 
+        "text": "La récursivité",
+        "resume": ""
       }
     ],
     [

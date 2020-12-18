@@ -389,10 +389,6 @@
       "language": "javascript",
       "fileName": "app.js",
       "value": "const dataBasePath = 'facebook.mysql.ovh.net';\n\ndataBasePath = 'twitter.mysql.ovh.net' // ERREUR: on ne peut pas modifier une constante"
-    },
-    {
-      "type": "h4",
-      "value": "Les conditions"
     }
   ]
 }

@@ -1,0 +1,405 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Le Javascript et le web partie 1: Parcourir le DOM",
+    "resume": "On va faire autre chose que du console.log(); !"
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Le grand jour est enfin arrivé !"
+      },
+      {
+        "type": "h4",
+        "value": "Tu vas avoir autre chose qu'une page blanche !"
+      },
+      {
+        "type": "p",
+        "value": "Mais c'est pas pour autant qu'on va abandonner la console ! Elle sera ta plus grande amie pour déboguer ton site !"
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "unbelievable.gif",
+        "alt": "Le Javascript et le web partie 1: Parcourir le DOM"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "Rappel de ce qu'est le DOM"
+    },
+    {
+      "type": "p",
+      "value": "Avant de commencer, petit rappel de ce qu'est le DOM pour se remettre dans le bain. Le <b>DOM</b> est l'interface qui représente le HTML de ta page web et qui te permettra d'accéder et de modifier tous les éléments de ta page grâce à Javascript."
+    },
+    {
+      "type": "img",
+      "src": "ready.gif",
+      "alt": "Rappel de ce qu'est le DOM"
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Accéder aux éléments du DOM par sélection"
+    },
+    {
+      "type": "p",
+      "value": "Pour débuter avec la manipulation du DOM, on va apprendre à se déplacer dans le DOM. Parce que c'est bien beau de vouloir être développeur.se mais il faut bien connaître son chemin avant de partir à l'aventure..."
+    },
+    {
+      "type": "p",
+      "value": "On va déjà partir avec cette base HTML. C'est pas grand chose, mais il faut bien commencer quelque part..."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <h1>Hello JS !</h1>\n  <p class='text-content' id='main-paragraph'>Ceci est mon premier paragraphe</p>\n  <p class='text-content'>Ceci est un paragraphe</p>\n  <p class='text-content'>Ceci est un paragraphe</p>\n\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "h5",
+      "value": "Le DOM c'est bien beau mais ça ressemble en quoi en vrai ?"
+    },
+    {
+      "type": "p",
+      "value": "Pour se déplacer dans le DOM, on va utiliser l'objet <b>document</b> (c'est de D de DOM). Alors, allons-y, faisons un <b>console.log</b> de <b>document</b> 😁."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log(document);"
+    },
+    {
+      "type": "p",
+      "value": "Alors, qu'est-ce que ça nous retourne ? Notre code HTML! Je te présente le DOM ! DOM, étudiant. Étudiant, DOM. Tu es enchanté, il est enchanté, les présentations sont terminées, vous allez être des supers potes, maintenant on avance !"
+    },
+    {
+      "type": "h5",
+      "value": "Cibler un élément grâce à son id"
+    },
+    {
+      "type": "p",
+      "value": "Reprenons notre code HTML. Admettons que je veuille récupérer le paragraphe avec l'id <b>main-paragraph</b>. Je vais utiliser pour cela une <b>fonction</b> de l'objet <b>document</b> qui s'appelle <b>getElementById()</b> qui permet comme son nom l'indique de récupérer un élément du DOM par son <b>id</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let monParagraphePrincipal = document.getElementById('main-paragraph');\n\nconsole.log(monParagraphePrincipal);"
+    },
+    {
+      "type": "p",
+      "value": "La console affiche bien notre élément HTML. (Tu peux tester plutôt que de lire simplement le cours...)"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Je te rappelle qu'un <b>id</b> est unique ! Il ne peut pas y avoir deux éléments avec un id identique."
+    },
+    {
+      "type": "h5",
+      "value": "Cibler un ou plusieurs élément grâce à sa/leur classe"
+    },
+    {
+      "type": "p",
+      "value": "Tout comme on peut récupérer un élément grâce à son <b>id</b>, on peut en récupérer un ou plusieurs grâce aux <b>classes</b>. Je dis un ou plusieurs car contrairement à un <b>id</b>, une classe peut être utilisée sur plusieurs éléments du DOM. Et pour cela, on va utiliser la fonction du DOM qui s'appelle <b>getElementsByClassName()</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let mesParagraphes = document.getElementsByClassName('text-content');\n\nconsole.log(mesParagraphes);"
+    },
+    {
+      "type": "p",
+      "value": "Cette fois-ci, la console nous retourne un <b>HTMLCollection</b>. C'est quoi ? C'est un <b>tableau</b> ;) et le chiffre entre parenthèse et son nombre d'éléments à l'intérieur. Dans notre cas, ce sont les trois balises <b>p</b>. Et si on déplie chaque élément du tableau on peut voir que ce sont des objets qui contiennent une tonne d'attributs que l'on pourra récupérer. Exemple :"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Affiche le contenu de mon élément\nconsole.log( mesParagraphes[0].innerText ); // Soit 'Ceci est mon premier paragraphe'"
+    },
+    {
+      "type": "h5",
+      "value": "Cibler un ou plusieurs éléments grâce à leur nom de balise"
+    },
+    {
+      "type": "p",
+      "value": "De la même manière que pour récupérer des éléments par leur classe, on peut les récupérer par leur nom de balise avec la fonction <b>getElementsByTagName()</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let mesParagraphes = document.getElementsByTagName('p');\n\nconsole.log(mesParagraphes);"
+    },
+    {
+      "type": "p",
+      "value": "La fonction nous retourne également un tableau d'objets avec les mêmes attributs que pour <b>getElementsByClassName</b>."
+    },
+    {
+      "type": "h5",
+      "value": "Cibler un élément grâce à son id, sa classe ou son nom de balise"
+    },
+    {
+      "type": "p",
+      "value": "Un peu différente de ces soeurs, cette fonction permet de récupérer le premier élément du DOM grâce à sa classe, son id ou son nom de balise. Cette fonction est <b>querySelector()</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let p1 = document.querySelector('p');\nconsole.log(p1);\n\nlet p2 = document.querySelector('#main-paragraph');\nconsole.log(p2);\n\nlet p3 = document.querySelector('.text-content');\nconsole.log(p3);"
+    },
+    {
+      "type": "p",
+      "value": "Ces trois variables affichent la même chose car <b>querySelector</b> ne récupère que le premier élément qu'il trouve dans la hierarchie du DOM."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Fais attention si tu utilises cette fonction pour récupérer un id ou une classe, il faudra mettre un # ou un . devant leur nom."
+    },
+    {
+      "type": "h4",
+      "value": "Accéder aux élements du DOM par héritage"
+    },
+    {
+      "type": "p",
+      "value": "Tu sais maintenant récupérer des éléments en les ciblant directement grâce à l'objet <b>document</b>. Mais Javascript permet aussi de naviguer dans le DOM grâce aux éléments précédement ciblés."
+    },
+    {
+      "type": "p",
+      "value": "Pour chaque <b>élément</b> ciblé, on va pouvoir récupéré son parent, ses enfants, les éléments le précédant et les éléments lui succédant. Comme on l'a vu plus haut, un élément ciblé est un objet et dispose d'énormément d'attributs et de fonctions. On va prendre ce code HTML pour exemple qui pourrait être un slider d'images:"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <section class='slider'>\n    <button class='slider-previous'>Previous</button>\n\n    <div class='slider-container'>\n      <img src='img1.jpg' alt='' id='img1'/>\n      <img src='img2.jpg' alt='' id='img2'/>\n      <img src='img3.jpg' alt='' id='img3'/>\n    </div>\n\n    <button class='slider-next'>Next</button>\n  </section>\n\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "p",
+      "value": "Je récupère d'abord mon élément, ici le div <b>slider-container</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let sliderContainer = document.getElementsByClassName('slider-container');"
+    },
+    {
+      "type": "h5",
+      "value": "Récupérer les enfant d'un élément"
+    },
+    {
+      "type": "p",
+      "value": "Tu peux récupérer les enfants d'un élément ciblé (dans notre cas, les images du slider) en utilisant l'attribut <b>children</b> de ton élément."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log( sliderContainer[0].children );"
+    },
+    {
+      "type": "p",
+      "value": "On récupère bien les trois images enfants de notre élément."
+    },
+    {
+      "type": "h5",
+      "value": "Récupérer le parent d'un élément"
+    },
+    {
+      "type": "p",
+      "value": "Tout comme les enfants, tu peux récupérer l'élément parent de ton élément ciblé grâce à <b>parentElement</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log( sliderContainer[0].parentElement );"
+    },
+    {
+      "type": "p",
+      "value": "On récupère donc ici notre section qui comme classe <b>slider</b>."
+    },
+    {
+      "type": "h5",
+      "value": "Récupérer l'élément précédent et l'élément suivant notre élément ciblé"
+    },
+    {
+      "type": "p",
+      "value": "Et pour finir, on peut aussi récupérer l'élément suivant et l'élément précédent du même niveau hierarchique que notre élément avec <b>nextElementSibling</b> et <b>previousElementSibling</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "console.log( sliderContainer[0].nextElementSibling );\nconsole.log( sliderContainer[0].previousElementSibling );"
+    },
+    {
+      "type": "p",
+      "value": "Dans notre exemple, on récupère les boutons <b>next</b> et <b>previous</b>."
+    },
+    {
+      "type": "p",
+      "value": "Bon c'était plutôt simple à comprendre tout ça après les fonctions et Git non ?"
+    },
+    {
+      "type": "img",
+      "src": "easy-peasy.gif",
+      "alt": "Accéder aux éléments du DOM"
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Modifier le DOM"
+    },
+    {
+      "type": "p",
+      "value": "Et si on avait besoin de modifier ces éléments, comment qu'on ferait hein ?"
+    },
+    {
+      "type": "h5",
+      "value": "Modifier le contenu d'un élément"
+    },
+    {
+      "type": "p",
+      "value": "Pour modifier le contenu d'un élément, il y a deux attributs que l'on peut utiliser: <b>innerHTML</b> pour ajouter du contenu HTML et <b>textContent</b> pour ajouter du contenu textuel, le HTML ne sera pas pris en compte."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let sliderPrevious = document.getElementsByClassName('slider-previous');\nsliderPrevious[0].innerHTML = '<img src=\"previous-btn.png\" alt=\"\"/>';\n\nlet sliderNext = document.getElementsByClassName('slider-next');\nsliderNext[0].textContent += ' image';"
+    },
+    {
+      "type": "p",
+      "value": "Dans cet exemple, on a remplacé le texte du bouton Previous par une image, et ajouté du texte au texte existant du bouton Next pour avoir <i>Next image</i> comme contenu textuel. Ce qui donne comme résultat final :"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <section class='slider'>\n    <button class='slider-previous'>\n      <img src=\"previous-btn.png\" alt=\"\" />\n    </button>\n\n    <div class='slider-container'>\n      <img src='img1.jpg' alt='' id='img1'/>\n      <img src='img2.jpg' alt='' id='img2'/>\n      <img src='img3.jpg' alt='' id='img3'/>\n    </div>\n\n    <button class='slider-next'>Next image</button>\n  </section>\n\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "h5",
+      "value": "Modifier les classes CSS"
+    },
+    {
+      "type": "p",
+      "value": "Pour modifier les classes CSS d'un élément, on va utiliser la propriété <b>classList</b> et cette propriété contient plusieurs fonctions dont les principales à retenir sont :"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>add()</b> qui permet d'ajouter une ou plusieurs classes;</li><li><b>remove()</b> qui permet de supprimer une ou plusieurs classes;</li><li><b>contains()</b> qui permet de vérifier si la classe spécifiée est présente ou pas;</li><li><b>replace()</b> qui permet de remplacer la classe actuelle par une nouvelle;</li>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let img1 = document.getElementById('img1');\n\n// Ajouter une classe\nimg1.classList.add('is-active');\n\n// Remplacer un classe\nimg1.classList.replace('is-active', 'is-unactive');\n\n// Supprimer une classe\nimg1.classList.remove('is-unactive');\n\n// Verifier si une classe est présente\nimg1.classList.contains('is-active'); // Retourne false puisqu'on vient de la supprimer"
+    },
+    {
+      "type": "h5",
+      "value": "Modifier le style CSS d'un élément"
+    },
+    {
+      "type": "p",
+      "value": "Plutôt que de modifier une classe CSS, on peut directement modifier le style CSS grâce à la propriété <b>style</b> qui contient elle même des attributs correspondants aux propriétés CSS, par exemple <b>backgroundColor</b> pour la propriété CSS <b>background-color</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let btnNext = document.getElementsByClassName('slider-next');\n\nbtnNext.style.color = '#FF0000';\nbtnNext.style.fontWeight = 'bold';"
+    },
+    {
+      "type": "p",
+      "value": "Je ne vais pas te lister toutes les propriétés CSS, j'en aurait pour l'année entière..."
+    },
+    {
+      "type": "h5",
+      "value": "Modifier les attributs d'un élément"
+    },
+    {
+      "type": "p",
+      "value": "On peut aussi modifier les attributs d'un éléments, par exemple l'attribut <b>href</b> d'un lien ou encore l'attribut <b>src</b> d'une image."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let img1 = document.getElementById('img1');\n\n// Récupérer un attribut\nimg1.getAttribute('src'); // Retourne 'img1.jpg'\n\n// Changer la valeur d'un attribut\nimg1.setAttribute('src', 'img4.jpg');"
+    },
+    {
+      "type": "h5",
+      "value": "Créer de nouveaux éléments et les ajouter dans le DOM"
+    },
+    {
+      "type": "p",
+      "value": "Tu peux également créer carrément de nouveau éléments grâce à la propriété <b>createElement</b> de l'objet <b>document</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let newImg = document.createElement('img');"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Attention, créer un élément ne veut pas dire l'insérer dans le DOM. Pour ça il va falloir l'insérer à l'endroit où l'on veut..."
+    },
+    {
+      "type": "p",
+      "value": "Maintenant qu'on a créé un élément, il faut comme je l'ai dit au dessus l'insérer dans le DOM à l'endroit où l'on veut le voir apparaître. Pour ça on vaa utiliser la fonction <b>appendChild</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let sliderContainer = document.getElementsByClassName('slider-container');\n\n// J'ajoute ma nouvelle image dans le div .slider-container\nsliderContainer[0].appendChild(newImg);"
+    },
+    {
+      "type": "h5",
+      "value": "Supprimer un élement"
+    },
+    {
+      "type": "p",
+      "value": "Tout comme l'ajout d'un nouvel élément, je peux aussi en supprimer avec la fonction <b>removeChild</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let sliderContainer = document.getElementsByClassName('slider-container');\n\n// Je supprime mon image dans le div .slider-container\nsliderContainer[0].removeChild(newImg);"
+    },
+    {
+      "type": "h5",
+      "value": "Remplacer un élément"
+    },
+    {
+      "type": "p",
+      "value": "Ou alors je peux remplacer un élément plutôt que de le supprimer avec la fonction <b>replaceChild</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "let slider = document.getElementsByClassName('slider');\nlet btnPrevious = document.getElementsByClassName('previous-btn');\n\nlet newBtnPrevious = document.createElement('a');\n\nslider.replaceChild(newBtnPrevious, btnPrevious);"
+    },
+    {
+      "type": "p",
+      "value": "C'est beaucoup d'informations mais il n'y a rien de méchant dans tout ça. Dans le prochain cours, on verra qu'on peut créer des événements avec Javascript pour donner un peu d'interraction..."
+    }
+  ]
+}
