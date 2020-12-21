@@ -400,6 +400,11 @@
     {
       "type": "p",
       "value": "C'est beaucoup d'informations mais il n'y a rien de méchant dans tout ça. Dans le prochain cours, on verra qu'on peut créer des événements avec Javascript pour donner un peu d'interraction..."
+    },
+    {
+      "type": "img",
+      "src": "tired.gif",
+      "alt": "Ce cours est fini, va te coucher, il est tard !"
     }
   ]
 }

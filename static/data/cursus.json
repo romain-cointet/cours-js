@@ -6,7 +6,7 @@
     },
     { 
       "value": 1, 
-      "text": "Bootstrap & JQuery" 
+      "text": "Les librairies externes" 
     },
     { 
       "value": 2, 
@@ -61,24 +61,29 @@
       { 
         "value": 7, 
         "text": "Le Javascript et le web partie 2: Les événements",
-        "resume": "Réveillons la puissance du JS !"
-      },
-      { 
-        "value": 8, 
-        "text": "Les librairies",
-        "resume": "Ne faisons pas des choses qui existent déjà !"
+        "resume": "Prochaine cluster party, ce soir à 21h, lieu tenu secret jusqu'au dernier moment. 😇"
       }
     ],
     [
       { 
         "value": 0, 
-        "text": "Bootstrap",
-        "resume": ""
+        "text": "C'est quoi une librairie ?",
+        "resume": "Ne faisons pas des choses qui existent déjà !"
       },
       { 
         "value": 1, 
-        "text": "JQuery",
-        "resume": ""
+        "text": "JQuery (bref aperçu)",
+        "resume": "La retraite, c'est pour bientôt papy !"
+      },
+      { 
+        "value": 2, 
+        "text": "Bootstrap",
+        "resume": "Merci qui ? Merci Twitter !"
+      },
+      { 
+        "value": 3, 
+        "text": "Gsap TweenMax",
+        "resume": "Des animations partout partout !"
       }
     ],
     [

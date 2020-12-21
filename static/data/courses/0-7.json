@@ -1,0 +1,168 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Javascript"
+    },
+    "title": "Le Javascript et le web partie 2: Les événements",
+    "resume": "Prochaine event, ce soir à 21h, lieu tenu secret jusqu'au dernier moment. 😇"
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Euh, quand j'ai cliqué sur cette image..."
+      },
+      {
+        "type": "h4",
+        "value": "... Y a plein d'autres images douteuses qui sont apparues."
+      },
+      {
+        "type": "p",
+        "value": "Ah, tu as été victime... D'UN ÉVÉNEMENT JAVASCRIPT !!"
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "dramatic-chipmunk.gif",
+        "alt": "Le Javascript et le web partie 2: Les événements"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "p",
+      "value": "En Javascript, un <b>événement</b> est ce qu'il ce passe après une action réalisée par un utilisateur. Par exemple: ce qu'il va se passer après qu'un utilisateur ai cliqué sur une image."
+    },
+    {
+      "type": "h4",
+      "value": "Structure d'un événement"
+    },
+    {
+      "type": "p",
+      "value": "Un événement se compose de deux parties: <b>son nom</b> et d'une fonction que l'on appellera <b>callback</b>. C'est dans le callback qu'on effectuera les actions que l'on veut effectuer lors de l'événement."
+    },
+    {
+      "type": "p",
+      "value": "Reprenons notre exemple de slider. Je vais ajouter un événement au clic sur le bouton Next pour changer l'image active de mon slider."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> On peut imaginer qu'en CSS, mon image active soit en <b>display: block;</b> et les autre en <b>display: none;</b>."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <section class='slider'>\n    <button class='slider-previous'>Previous</button>\n\n    <div class='slider-container'>\n      <img src='0.jpg' alt='' class='slider-img is-active'/>\n      <img src='1.jpg' alt='' class='slider-img'/>\n      <img src='2.jpg' alt='' class='slider-img'/>\n    </div>\n\n    <button class='slider-next'>Next</button>\n  </section>\n\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Je récupère mes images dans un tableau\nlet imgs = document.getElementsByClassName('slider-img');\n// Je récupère mon bouton Next\nlet btnNext = document.getElementsByClassName('slider-next');\n// J'initialise une variable qui sera l'index de mon tableau d'images\nlet imgActive = 0;"
+    },
+    {
+      "type": "p",
+      "value": "Voilà ma base pour commencer à travailler. Jusqu'ici, on a déjà vu tout le code ci-dessus."
+    },
+    {
+      "type": "p",
+      "value": "À présent regardons comment on va appeler notre événement... Il faudra appeler la fonction <b>addEventListener</b> sur l'élément auquel on veut associer l'événement; dans notre cas le bouton Next. La fonction <b>addEventListener</b> comprends deux paramètres : le <b>nom de l'événement</b> et la <b>fonction callback</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "btnNext[0].addEventListener('click', function() {\n  // Je suis dans la fonction callback\n  // C'est ici que je mettrai le code qui s'effectuera lorsque mon événément se lancera\n})"
+    },
+    {
+      "type": "p",
+      "value": "Détaillons un peu ce qu'on a écrit plus haut... Le <b>'click'</b> est le nom de l'événement. Il y en a des tas (comme détecter le mouvement de la souris, détecter les entrées clavier, détecter l'envoi d'un formulaire, etc...), je te laisserai le soin d'aller les regarder de plus près en cherchant la documentation officielle. Et ensuite, il y a la <b>fonction callback</b>. Oui tu ne rêves pas, j'ai écrit une fonction dans les paramètres d'une autre fonction. Et c'est dans cette fonction qu'on écrira le reste du code qui s'effectuera quand l'événement se lancera; dans notre cas, au clic sur le bouton."
+    },
+    {
+      "type": "p",
+      "value": "Allez, il ne reste plus qu'à coder le changement d'image lors du clic..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "btnNext[0].addEventListener('click', function() {\n  // Mon if sert à ne pas continuer quand on arrive à la dernière image\n  if( imgActive < (imgs.length - 1)) {\n    // Je supprime la classe active de l'image active\n    imgs[imgActive].classList.remove('is-active');\n    // J'incrémente mon index\n    imgActive++;\n    // Je rajoute la classe active à l'image suivante\n    imgs[imgActive].classList.add('is-active');\n  }\n})"
+    },
+    {
+      "type": "p",
+      "value": "En supprimant la classe <b>is-active</b> de mon image, je lui redonne la propriété CSS <b>display: none;</b> ce qui aura pour effet de la masquer. Puis j'incrémente mon index pour pouvoir récupérer l'image suivante de mon tableau. Et il ne me reste plus qu'à lui ajouter la classe <b>is-active</b> pour passer l'image en <b>display: block</b>. C'était pas si compliqué que ça non ? Allez, tu peux faire la même chose pour le bouton <b>Previous</b>. Il y aura juste une petite différence, je te laisse la trouver..."
+    },
+    {
+      "type": "p",
+      "value": "<span class='spoil'>SPOIL</span> Correction: cette fois-ci on va ajouter un événement au bouton Previous et le code à l'intérieur du callback sera le même à l'exception que ma condition testera si <b>imgActive</b> est supérieure à 0, et qu'on décrémentera au lien d'incrémenter <b>imgActive</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "// Je récupère mon bouton Previous\nlet btnPrevious = document.getElementsByClassName('slider-previous');\n\nbtnPrevious[0].addEventListener('click', function() {\n  // Mon if sert à ne pas continuer quand on arrive à la première image\n  if( imgActive > 0) {\n    // Je supprime la classe active de l'image active\n    imgs[imgActive].classList.remove('is-active');\n    // Je décrémente mon index\n    imgActive--;\n    // Je rajoute la classe active à l'image précédente\n    imgs[imgActive].classList.add('is-active');\n  }\n})"
+    },
+    {
+      "type": "h4",
+      "value": "L'objet event de la fonction callback"
+    },
+    {
+      "type": "p",
+      "value": "Je ne t'ai pas tout dit sur la fonction callback. Elle met à disposition un objet <b>event</b> qui donne des propriétés et des fonctions supplémentaires pour gérer ses événements. Pour récupérer cette propriété, il faut l'appeler dans les <b>paramètres</b> de la fonction callback."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "monElement.addEventListener('click', function(event) { ... })"
+    },
+    {
+      "type": "p",
+      "value": "Cet objet <b>event</b> donne accès à de nombreuses fonctionnalités mais on ne va s'attarder que sur deux de celles-ci: "
+    },
+    {
+      "type": "h5",
+      "value": "Ne pas exécuter le comportement d'un élément"
+    },
+    {
+      "type": "p",
+      "value": "La fonction <b>preventDefault()</b> permet de ne pas exécuter le comportement normal d'un élément. Par exemple si je veux mettre un événement sur un lien, je devrait appeler cette fonction pour que le lien ne redirige pas automatiquement sur une autre page."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "monLien.addEventListener('click', function(event) {\n  event.preventDefault(); // Annule la redirection\n  // Je peux maintenant lui faire faire ce que je veux\n})"
+    },
+    {
+      "type": "h5",
+      "value": "Empêcher la propagation de l'événement à l'élément parent"
+    },
+    {
+      "type": "p",
+      "value": "La fonction <b>stopPropagation()</b> permet de ne pas de ne pas propager l'événement à l'élément parent de celui que nous utilisons. Cela est utile quand on veut utiliser le parent pendant que l'événement est en cours."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "app.js",
+      "value": "monElement.addEventListener('click', function(event) {\n  event.stopPropagation(); // Annule la propagation au parent\n  elementParent.innerHTML = '<p>Hello</p>';\n})"
+    },
+    {
+      "type": "p",
+      "value": "Ces deux fonctions sont des cas spéciaux qui s'utilisent seulement dans certains cas. Retiens juste qu'ils existent, tu en auras sûrement un jour besoin."
+    },
+    {
+      "type": "p",
+      "value": "On ne va pas aller plus loin dans les événements. Tu as maintenant les bases, je te laisserai le soin d'approfondir le sujet si tu en as envi. On a terminé le premier chapitre ! Tu peux être fier de toi ! Dans le prochain, on verra qu'on a pas besoin de tout recoder à chaque fois et qu'il y a plein de choses déjà faites et prêtes à être utilisées."
+    },
+    {
+      "type": "nuxt-link",
+      "src": "/1/0",
+      "value": "On passe au chapitre 2 ?"
+    }
+  ]
+}

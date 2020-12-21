@@ -1,0 +1,154 @@
+{
+  "head": {
+    "chapter": {
+      "id": 0,
+      "value": "Les librairies externes"
+    },
+    "title": "C'est quoi une librairie ?",
+    "resume": "Ne faisons pas des choses qui existent déjà !"
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Tu n'es pas le premier développeur,"
+      },
+      {
+        "type": "h4",
+        "value": "Et tu ne seras pas le dernier."
+      },
+      {
+        "type": "p",
+        "value": "Et des tas de développeurs très gentils ont déjà développer des lignes de codes pour aider les autres développeurs à créer les leurs. On appelle ces lignes de codes des <b>librairies</b>. Elles sont là pour te faciliter le développement et augmenter ta productivité."
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "servant.gif",
+        "alt": "Les librairies externes"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "p",
+      "value": "En Javascript, il y a des librairies pour après tout et n'importe quoi. On peut trouver des librairies pour gérer les dates et les heures comme <a href='https://momentjs.com/' target='_blank'>Moment.js</a> ou encore pour avoir des animations bien kitch comme <a href='https://wowjs.uk/' target='_blank'>Wow.js</a>. Bref, il a sûrement une librairie qui gère la fonctionnalité que tu veux développer. Mais attention à ne pas faire le mauvais choix et à ne pas surcharger ton site pour rien..."
+    },
+    {
+      "type": "h4",
+      "value": "Comprendre une librairie"
+    },
+    {
+      "type": "h5",
+      "value": "Lire la doc"
+    },
+    {
+      "type": "p",
+      "value": "La première chose à faire avant de choisir une librairie, c'est de lire sa documentation, où au moins son résumé et quelques exemples. Il faut que tu comprennes son fonctionnement et qu'elle soit \"compatible\" avec ce que tu veuilles faire."
+    },
+    {
+      "type": "p",
+      "value": "Généralement, les grosses librairies disposent d'un site web qui va présenter son fonctionnement. Si elle est bien expliquée, il suffira de survoler la première page pour comprendre comment elle marche. Leur site dispose souvent d'une page Documentation appelée \"Doc\" ou encore \"How to use ?\" et il est conseillé d'aller y jeter un oeil avant de se lancer..."
+    },
+    {
+      "type": "p",
+      "value": "Prenons l'exemple de la librairie <a href='https://wowjs.uk/' target='_blank'>Wow.js</a>. Sa page d'accueil montre clairement ce qu'on peut faire avec: générer toutes sortes d'animations au scroll sur une page. Et si on va sur la page \"How to use ?\", on nous montre des exemples de code pour apprendre à comment l'utiliser."
+    },
+    {
+      "type": "h5",
+      "value": "Se rendre sur le repository Github"
+    },
+    {
+      "type": "p",
+      "value": "Mais 99% du temps, les librairies disposent également d'une page Github et il est fortement conseillé de s'y rendre... Reprenons l'exemple de la librairie <a href='https://wowjs.uk/' target='_blank'>Wow.js</a>. On voit dans le menu qu'il y a aussi un lien vers <a href='https://github.com/graingert/wow' target='_blank'>sa page Github</a>. Si on se rend dessus, on peut voir que le <b>Read.me</b> (la description qui se trouve sous l'architecture du projet) nous apprend quelque chose de très important... Et oui, l'auteur de la librairie nous informe que Wow.js est temporairement obsolète et qu'il vaudrait mieux utiliser la librairie <a href='https://michalsnik.github.io/aos/' target='_blank'>AOS (Animate On Scroll)</a>. Et ça, ce n'était pas marqué sur le site web..."
+    },
+    {
+      "type": "p",
+      "value": "Autre chose qu'il est important de regarder, c'est son nombre <b>d'issues</b> et de <b>pull request</b>. Une issue est un demande faite par la communauté pour résoudre un problème qu'elle a rencontré avec la librairie en question. Sur les pages des issues et des pull request sont renseignés le ratio entre le nombre d'issues ouvertes et le nombre d'issues fermées, c'est à dire corrigées (et idem pour les P.R.). Si ce ratio est trop important, cela veut dire que la librairie comporte de nombreux bugs ou qu'elle n'est pas maintenue à jour régulièrement... Cela ne semble pas très bon... Il serait peut-être judicieux d'en trouver une autre plus adéquate où de développer sa propre librairie si aucune ne répond à ta problématique."
+    },
+    {
+      "type": "h4",
+      "value": "Installer une librairie, les différentes méthodes"
+    },
+    {
+      "type": "p",
+      "value": "Si malgré tout ça, la librairie que tu as trouvé te semble le bonne, il y a plusieurs façons de l'installer sur ton projet. Je vais te montrer les trois méthodes que tu peux utiliser. Toutes ces méthodes sont décrites sur les pages de chaque librairies, tu ne pourras pas te tromper."
+    },
+    {
+      "type": "h5",
+      "value": "En téléchargeant la librairie"
+    },
+    {
+      "type": "p",
+      "value": "Tu peux directement télécharger les fichiers sources de la librairie et les mettre dans ton projet. En général, on crée un dossier <b>js</b> dans notre projet et on colle le dossier de la librairie à l'intérieur."
+    },
+    {
+      "type": "p",
+      "value": "Ensuite, il suffit d'appeler le/les fichiers de la librairie dans notre page HTML grâce à la balise <b>script</b> comme on le fait pour notre fichier javascript."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <!-- Mo ncode HTMl -->\n\n  <script type='text/javascript' src='js/ma-librairie/fichier-de-ma-librairie.js'></script>\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>Note 1</span> Il est conseillé d'appeler les librairies externes avant d'appeler son propre fichier javascript pour deux raisons: Éviter des conflits avec ton code, et pour utiliser les fonctions de la librairie dans ton code. Si ton code est appelé avant, il sera chargé avant le code de la librairie et ne pourra donc pas l'utiliser."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>Note 2</span> Certaines libraires disposent également de fichiers CSS. Il faudra donc les appeler grâce à la balise <b>link</b> dans le <b>head</b> de ton fichier HTML. Et de la même façon, il faudra l'appeler avant ton fichier CSS."
+    },
+    {
+      "type": "h5",
+      "value": "Via un CDN"
+    },
+    {
+      "type": "p",
+      "value": "Un <b>CDN</b> est un serveur de stockage dédié à une librairie. C'est le développeur de la librairie qui met à disposition ses fichiers directement en ligne. Ça évite donc de télécharger la librairie dans son projet. Tout comme la première méthode, il faudra utiliser la balise <b>script</b> pour appeler la librairie mais à la place du chemin vers le fichier javascript, il faudra mettre l'adresse du CDN."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <!-- Mo ncode HTMl -->\n\n  <script type='text/javascript' src='https://unpkg.com/aos@next/dist/aos.js'></script>\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>Note</span> Attention tout de même, il est conseillé d'utiliser un CDN seulement pour la version de développement de votre projet. Pourquoi ? Car une fois votre projet en ligne, si le serveur de la librairie tombe ou est piraté, votre site risque de ne plus très bien marcher..."
+    },
+    {
+      "type": "h5",
+      "value": "Via un gestionnaire de paquet"
+    },
+    {
+      "type": "p",
+      "value": "Quand on commence à avoir beaucoup de librairies externes, il serait peut-être judicieux de penser à utiliser un <b>gestionnaire de paquets</b>. Et c'est quoi un gestionnaire de paquet ? C'est une application qui permet de gérer toutes les librairies externes dans son projet. Il en existe plusieurs: en Javascript, il y a par exemple <b>Yarn</b> et <b>NPM</b>. Pour ma part, j'utilise <b>NPM</b>. Et pour PHP, il a <b>Composer</b>."
+    },
+    {
+      "type": "p",
+      "value": "Une fois installé, c'est via les lignes de commandes du terminal que l'on va ajouter une librairie à notre projet. Par exemple avec NPM :"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "fileName": "terminal",
+      "value": "npm install jquery"
+    },
+    {
+      "type": "p",
+      "value": "Mais je ne vais pas approfondir le sujet, on aura l'occasion d'utiliser les gestionnaires de paquets très bientôt."
+    },
+    {
+      "type": "p",
+      "value": "C'est tout pour ce cours-ci, je te dis à plus dans l'bus et à très vite pour du Javascript !"
+    },
+    {
+      "type": "img",
+      "src": "proud.gif",
+      "alt": "Les librairies externes"
+    }
+  ]
+}
