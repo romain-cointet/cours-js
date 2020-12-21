@@ -1,4 +1,18 @@
+// ajouter seulement `router.base = '/<nom-du-depot>/'` si `DEPLOY_ENV` est `GH_PAGES`
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/cours-js/'
+        }
+      }
+    : {}
+    
 export default {
+  target: 'static', // la valeur par défaut est 'server'
+  mode: 'spa',
+  ...routerBase,
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'cours-nuxt',
