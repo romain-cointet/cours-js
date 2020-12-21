@@ -33,7 +33,7 @@
     async fetch() {
       await this.$store.dispatch('loadCursus')
 
-      let url = 'data/courses/'+this.$route.params.chapterId+'-'+this.$route.params.courseId+'.json';
+      let url = '/data/courses/'+this.$route.params.chapterId+'-'+this.$route.params.courseId+'.json';
       let response = await this.$axios.get(url);
       let course = response.data;
       this.course = course;
