@@ -72,7 +72,7 @@ export default {
   },
   publicRuntimeConfig: {
     axios: {
-      browserBaseURL: process.env.BROWSER_BASE_URL
+      browserBaseURL: process.env.BROWSER_BASE_URL || 'http://localhost:3000'
     }
   },
   privateRuntimeConfig: {
