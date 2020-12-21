@@ -1,17 +1,8 @@
-// ajouter seulement `router.base = '/<nom-du-depot>/'` si `DEPLOY_ENV` est `GH_PAGES`
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/cours-js/'
-        }
-      }
-    : {}
-    
+let development = process.env.NODE_ENV !== 'production'
+
 export default {
   target: 'static', // la valeur par défaut est 'server'
   mode: 'spa',
-  ...routerBase,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -68,17 +59,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'http://localhost:5000', // Used as fallback if no runtime config is provided
-  },
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.API_URL || 'http://localhost:3000'
-    }
-  },
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.BASE_URL
-    }
+    baseURL: development ? 'http://localhost:3001' : 'https://cours-js-mjm.netlify.app/'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
