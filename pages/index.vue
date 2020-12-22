@@ -54,7 +54,7 @@ export default {
           "right": [
             {
               "type": "img",
-              "src": "home.png",
+              "src": "home.gif",
               "alt": "Welcode to the jungle;"
             }
           ]
@@ -67,7 +67,7 @@ export default {
             },
             {
               "type": "p",
-              "value": "Je t’ai vu essayer d’aller plus vite que la musique ! Est-ce que t’as au moins trouvé la Savage Banana ? Dans tous les cas, tu vas trop vite… Remonte à la sélection des cours et fais les dans l’ordre !"
+              "value": "Je t’ai vu essayer d’aller plus vite que la musique ! Est-ce que t’as au moins suivi un cours avant d'aller sur Netflix ? Dans tous les cas, tu vas trop vite… Remonte à la sélection des cours et fais les dans l’ordre !"
             },
             {
               "type": "a",
@@ -79,7 +79,7 @@ export default {
           "right": [
             {
               "type": "img",
-              "src": "not-finish.jpg",
+              "src": "watching-you.gif",
               "alt": "I see you"
             }
           ]
