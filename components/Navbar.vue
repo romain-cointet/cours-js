@@ -2,7 +2,7 @@
   <header :class="['comp--navbar', home&&!showSearchCourse?'home':'']">
     <b-row align-v="center" align-h="between" class="height-full">
       <b-col md="4">
-        <nuxt-link to="/">Home</nuxt-link>
+        <nuxt-link to="/"><img :src="showSearchCourse?require(`~/assets/img/logo-black.svg`):require(`~/assets/img/logo-white.svg`)" alt="MjsM, le Javascript pour MjM"/></nuxt-link>
       </b-col>
 
       <b-col md="7">

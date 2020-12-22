@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="18px" viewBox="0 0 10 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Arrow_Simple_left</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Next-chapter" transform="translate(-1607.000000, -153.000000)" fill="#273053">
+            <g id="Group-14" transform="translate(0.000000, 62.000000)">
+                <g id="Group-12" transform="translate(427.000000, 0.000000)">
+                    <g id="Group-11" transform="translate(1167.000000, 80.000000)">
+                        <g id="Arrow_Simple_left" transform="translate(13.000000, 11.000000)">
+                            <path d="M8.69684211,17.5073684 C8.97679871,17.7682347 9.41306184,17.7605374 9.6836417,17.4899575 C9.95422157,17.2193776 9.96191892,16.7831145 9.70105263,16.5031579 L2.12210526,8.92421053 L9.70105263,1.61052632 C9.96191892,1.33056971 9.95422157,0.894306579 9.6836417,0.623726717 C9.41306184,0.353146854 8.97679871,0.345449501 8.69684211,0.606315789 L0.246315789,8.92421053 L8.69684211,17.5073684 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

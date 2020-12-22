@@ -7,8 +7,8 @@
         </b-col>
         <b-col md="3">
           <div class="swiper-pagination">
-            <b-button @click="previousCourse" class="swiper-button-prev">P</b-button>
-            <b-button @click="nextCourse" class="swiper-button-next">N</b-button>
+            <b-button @click="previousCourse" class="swiper-button-prev"><img src="~/assets/img/icon-previous.svg" alt="Cours précédent"/></b-button>
+            <b-button @click="nextCourse" class="swiper-button-next"><img src="~/assets/img/icon-next.svg" alt="Cours suivant"/></b-button>
           </div>
         </b-col>
       </b-row>

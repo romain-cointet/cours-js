@@ -23,7 +23,9 @@
       </div>
 
       <div id="search-button">
-        <nuxt-link :to="'/'+this.chapterChoosen+'/'+this.courseChoosen">?</nuxt-link>
+        <nuxt-link :to="'/'+this.chapterChoosen+'/'+this.courseChoosen">
+          <img src="~/assets/img/icon-search.svg" alt="Commencer ce cours">
+        </nuxt-link>
       </div>
     </div>
   </div>
