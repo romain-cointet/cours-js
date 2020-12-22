@@ -1,7 +1,7 @@
 {
   "head": {
     "chapter": {
-      "id": 0,
+      "id": 1,
       "value": "Les librairies externes"
     },
     "title": "C'est quoi une librairie ?",
@@ -91,7 +91,7 @@
       "type": "code",
       "language": "html",
       "fileName": "index.html",
-      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <!-- Mo ncode HTMl -->\n\n  <script type='text/javascript' src='js/ma-librairie/fichier-de-ma-librairie.js'></script>\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <!-- Mon code HTMl -->\n\n  <script type='text/javascript' src='js/ma-librairie/fichier-de-ma-librairie.js'></script>\n  <script type='text/javascript' src='app.js'></script>\n </body>\n</html>"
     },
     {
       "type": "p",

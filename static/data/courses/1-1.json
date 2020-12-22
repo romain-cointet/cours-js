@@ -1,0 +1,283 @@
+{
+  "head": {
+    "chapter": {
+      "id": 1,
+      "value": "Les librairies externes"
+    },
+    "title": "JQuery en bref",
+    "resume": "La retraite, c'est pour bientôt papy !"
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Je te présente une des évolutions majeures du web..."
+      },
+      {
+        "type": "h4",
+        "value": "Pour qui son temps est maintenant révolu."
+      },
+      {
+        "type": "p",
+        "value": "JQuery a été une librairie qui a apporté de grands changements dans le développement web et qui a remis au goût du jour un langage qui était réduit à de simples <b>alert();</b>: le Javascript. D'autant plus que tous les navigateurs bloquaient Javascript par défaut pour éviter les floods massifs de popups et de multiples failles d sécurité pour leurs utilisateurs."
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "spam.gif",
+        "alt": "JQuery en bref"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "JQuery, c'est quoi ?"
+    },
+    {
+      "type": "p",
+      "value": "JQuery est une librairie Javascript lancée en 2006 qui avait pour but de faciliter le développement front-end. Sa particularité était que sa syntaxe était beaucoup plus simple que celle de Javascript à l'époque et elle permettait de faire énormément de choses comme la modification du DOM, la gestion des événements, la manipulation du CSS et la gestion des animations en très peu de lignes de codes. En bref, on pouvait faire tout ce que Javascript proposait mais avec moins de lignes."
+    },
+    {
+      "type": "p",
+      "value": "Aujourd'hui (décembre 2020, c'est le turfu!), Javascript a bien évolué et permet de faire plus de 95% des fonctions de JQuery en autant de lignes de code que celui-ci. Ce qui fait que malheureusement, cette librairie est sur sa fin de vie et la plupart des librairies qui l'utilisent (comme Bootstrap) sont en train de bosser sur une nouvelle version sans JQuery."
+    },
+    {
+      "type": "p",
+      "value": "C'est pourquoi, je vais rapidement survoler ses fonctionnalités pour que tu comprennes comment il fonctionne. Si tu veux pousser plus loin, je t'invite à aller lire sa documentation (qui n'est pas très claire) ou à chercher un tutoriel parmis les milliers/millions qu'il y a sur la toile."
+    },
+    {
+      "type": "h4",
+      "value": "Inclure JQuery sur son site"
+    },
+    {
+      "type": "p",
+      "value": "Comme toutes les librairies Javascript, pour inclure JQuery, on peut utiliser les trois méthodes vues dans le cours précédent. Dans mes exemples j'utiliserai la première méthode, c'est à dire que j'aurai téléchargé JQuery et que j'appellerai son fichier Javascript."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Quand on importe une librairie, on a souvent le choix entre deux fichier Javascript: le fichier normal du style <b>mon-fichier.js</b> et le fichier <b>minifié</b> qui se termine par <b>mon-fichier.min.js</b>. La différence est que le second a son code compressé. C'est à dire que tout son code tient sur une seule ligne. Pourquoi ? Pour gagner de la place et accélérer le temps de chargement. En général, on utilise le fichier non compressé pour la version de développement de notre site et la version compressée pour la version de production."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "<!DOCTYPE html>\n<html>\n <head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de ma page</title>\n </head>\n\n <body>\n  <!-- Mon code HTMl -->\n\n  <script type='text/javascript' src='js/jquery/jquery-3.5.1.js'></script>\n  <script type='text/javascript' src='js/app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "h5",
+      "value": "Initialiser JQuery"
+    },
+    {
+      "type": "p",
+      "value": "Une fois qu'on a importé JQuery sur notre page, il faut l'initialisé. C'est le même principe que pour les variables. Avant de l'utiliser, il faut la déclarer / l'initialisé. Pour ça, on va écrire un petit bout de code dans notre fichier <b>app.js</b> qui nous permettra d'utiliser JQuery seulement une fois que notre page HTML est chargée. Sans ce bout de code, il se peut que vos lignes de codes JQuery soient interprettées avant que le HTML soit chargé. Cela peut arriver si votre site est lourd ou si le serveur a des temps de lattences élevés."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  // Mon code JQuery sera ici\n  // à l'intérieur de ma fonction\n  // qui sert à déclarer JQuery\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "C'est ce <b>$</b> qui servira de référence à ton navigateur pour comprendre qu'on fait du JQuery. À chaque fois qu'on va utiliser JQuery, notre instruction commencera par un <b>$</b>."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> JQuery étant une surcouche à Javascript, on peut très bien faire du Javascript dans du JQuery !"
+    },
+    {
+      "type": "h4",
+      "value": "Les sélecteurs"
+    },
+    {
+      "type": "p",
+      "value": "On va commencer par ajouter un peu de HTML dans notre page..."
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "fileName": "index.html",
+      "value": "...\n<body>\n  <h1>Hello JQuery !</h1>\n  <p>Mon super <b>paragraphe d'introduction</b></p>\n\n  <div class='container'>\n    <img src='img.jpg' alt='Mon image' id='main-img'/>\n    <img src='img2.jpg' alt='Un autre image'/>\n  </div>\n\n  <script type='text/javascript' src='js/jquery/jquery-3.5.1.js'></script>\n  <script type='text/javascript' src='js/app.js'></script>\n </body>\n</html>"
+    },
+    {
+      "type": "h5",
+      "value": "Les sélecteurs d'éléments"
+    },
+    {
+      "type": "p",
+      "value": "Tout comme en Javascript, on va pouvoir récupérer des éléments du DOM mais cette fois-ci ça va être un peu plus simple..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  let $title = $('h1');\n  console.log($title);\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "Et oui plus besoin d'utiliser l'objet <b>document</b> et toutes ses fonctions... Ici, il suffit d'appeler notre <b>$</b> de JQuery et de lui donner le nom de la balise que l'on souhaite récupérer."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> J'ai aussi mis un <b>$</b> au nom de ma variable. Ce n'est pas obligatoire, c'est une convention entre développeurs pour dire que cette variable contient du JQuery mais ça marcherait très bien sans."
+    },
+    {
+      "type": "p",
+      "value": "Donc on peut voir que notre sélecteur est notre <b>$</b> et qu'il suffit de lui passer le nom de l'élément pour le récupérer. Et qu'est-ce que le console.log me retourne ? Un tableau ! Car ici, on a demandé à JQuery de récupérer toutes les balises <b>h1</b> du DOM."
+    },
+    {
+      "type": "p",
+      "value": "Mais on peut aller plus loin que ça pour récupérer des élements du DOM..."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  let $img = $('div img');\n  console.log($img);\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "Et oui, notre sélecteur fonctionne comme du CSS. Je peux lui dire d'aller me chercher des éléments enfants d'un parent. Dans notre cas, on va récupérer toutes les images contenues dans un div."
+    },
+    {
+      "type": "h5",
+      "value": "Les sélecteurs CSS"
+    },
+    {
+      "type": "p",
+      "value": "Mais si ça fonctionne comme du CSS alors... Oui on peut récupérer des classes, des id et utiliser tous les opérateurs CSS qui existent."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  // Récupérer une classe\n  let $container = $('.container');\n  console.log($container);\n\n  // Récupérer un id\n  let $mainImg = $('#main-img');\n  console.log($mainImg);\n\n  // Récupérer la première image\n  let firstImg = $('img:first-child');\n  console.log(firstImg);\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "Plutôt sympa quand même... Ça me rend limite nostalgique."
+    },
+    {
+      "type": "img",
+      "src": "sad-smile.gif",
+      "alt": "JQuery c'était bien quand même..."
+    },
+    {
+      "type": "h4",
+      "class": "mt-8",
+      "value": "Les méthodes"
+    },
+    {
+      "type": "p",
+      "value": "Pouvoir sélectionner des éléments c'est bien mais tu t'en doutes, on va pouvoir leur faire faire des choses... Et pour cela on va utiliser les <b>méthodes</b> que JQuery nous fournit."
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>NOTE</span> Euh attend, on a jamais parlé de <b>méthodes</b> dans tes cours... Une méthode signifie simplement une <b>fonction</b>. Mais on parle de méthode en <b>Programmation Orientée Objet</b>. Je vais pas te faire un cours dessus car il y aurait énormément à dire mais pour faire simple, En P.O.O., on utilise des objets qu'on appelle des <b>classes</b>. Ce sont des objets comme on les connait mais qui on un nom spécifique. Et une classe dispose de propriétés et de fonctions (les méthodes) bien à elle comme la méthode d'initialisation ou encore des méthodes privées et publiques. Donc oui, JQuery est une classe et elle dispose de méthodes."
+    },
+    {
+      "type": "h5",
+      "value": "Les effets d'animation"
+    },
+    {
+      "type": "p",
+      "value": "Avec JQuery on peut facilement animer nos éléments avec des effets basiques comme faire apparaître et disparaître un élément. Il suffit d'appeler la bonne méthode."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  let $title = $('h1');\n\n  // Cacher un élément instantanément\n  $title.hide();\n  // Afficher un élement lentement\n  $title.show('slow');\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "Il y évidemment d'autres méthodes que <b>show()</b> et <b>hide()</b> :"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>show()</b> affiche les éléments sélectionnés</li> <li><b>hide()</b> masque les éléments sélectionnés</li> <li><b>toggle()</b> affiche ou masque les éléments sélecitonnés selon leur état actuel</li> <li><b>fadeIn()</b> affiche en opacité de 0 à 1</li> <li><b>fadeOut()</b> masque en opacité de 1 à 0</li> <li><b>fadeTo</b> affiche ou masque en opacité vers l'opacité donnée</li> <li><b>slideUp()</b> masque en défilement vers le haut</li> <li><b>slideDown()</b> masque en défilement vers le bas</li> <li><b>slideToggle</b> affiche ou masque en défilement en fonction de son état actuel</li>"
+    },
+    {
+      "type": "p",
+      "value": "<span class='note'>Note</span> Chacune de ces méthodes peuvent recevoir des paramètres optionnels comme la durée de l'effet voulu en millisecondes (2000 pour 2 secondes) ou en String (slow ou fast)."
+    },
+    {
+      "type": "h5",
+      "value": "La manipulation de contenu"
+    },
+    {
+      "type": "p",
+      "value": "Pour modifier le contenu, il y a encore tout un tas de méthodes:"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>html()</b> affiche ou modifie son contenu HTML</li> <li><b>text()</b> affiche ou modifie son contenu textuel</li> <li><b>remove()</b> supprime l'élément</li> <li><b>before()</b> insère du contenu avant l'élément</li> <li><b>after()</b> insère du contenu après l'élément</li> <li><b>prepend()</b> insère du contenu dans l'élément juste après la balise ouvrante</li> <li><b>append()</b> insère du contenu dans l'élément juste avant la balise fermante</li> <li><b>attr()</b> récupère, midifie ou ajoute un attribut</li> <li><b>removeAttr()</b> supprime un attribut</li> <li><b>addClass()</b> ajoute une classe</li> <li><b>removeClass()</b> supprime une classe</li>"
+    },
+    {
+      "type": "h5",
+      "value": "Le parcour du DOM"
+    },
+    {
+      "type": "p",
+      "value": "Pour parcourir le DOM, il existe quatre méthodes:"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>find()</b> trouve les éléments recherchés dans la selection actuelle</li> <li><b>parent()</b> retourne le parent des éléments</li> <li><b>parents()</b> retourne les parents des éléments</li> <li><b>children()</b> retourne les enfants des éléments</li>"
+    },
+    {
+      "type": "h5",
+      "value": "La modification de style"
+    },
+    {
+      "type": "p",
+      "value": "JQuery permet aussi de modifier le style d'un élément ainsi que ses dimensions et sa position:"
+    },
+    {
+      "type": "ul",
+      "value": "<li><b>css()</b> retourne le style ou le modifie</li> <li><b>height()</b> retourne la hauteur sans les marges et bordures</li> <li><b>width()</b> retourne la largeur sans les marges et les bordures</li> <li><b>innerHeight()</b> retourne la hauteur avec les marges intérieures</li> <li><b>innerWidth()</b> retourne la largeur avec les marges intérieures</li> <li><b>outerHeight()</b> retourne la hauteur avec les marges extérieures</li> <li><b>outerWidth()</b> retourne la largeur avec les marges extérieures</li> <li>...</li>"
+    },
+    {
+      "type": "h4",
+      "value": "Les événements"
+    },
+    {
+      "type": "h5",
+      "value": "La méthode on"
+    },
+    {
+      "type": "p",
+      "value": "Comme <b>addEventListener()</b> en Javascript, JQuery met à disposition la méthode <b>on()</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  let $title = $('h1');\n\n  // Au clic sur le titre\n  $title.on('click', function() {\n    console.log($title.text());\n  });\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "Il y a évidemment de nombreux événements comme <b>scroll</b>, <b>hover</b>, <b>mouseover</b>, <b>keydown</b>, <b>resize</b>, etc..."
+    },
+    {
+      "type": "h5",
+      "value": "L'objet event"
+    },
+    {
+      "type": "p",
+      "value": "Et comme en Javascript, l'objet <b>event</b> du <b>callback</b> est disponible en JQuery et apporte plein de propriétés."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "fileName": "js/app.js",
+      "value": "$(function() {\n\n  let $title = $('h1');\n\n  // Au clic sur le titre\n  $title.on('click', function(event) {\n    console.log(event);\n  });\n\n});"
+    },
+    {
+      "type": "p",
+      "value": "Comme je te l'ai dit, on a fait un tour rapide de JQuery. Tu as les bases, tu veux approfondir ces bases, je t'invite à aller lire la doc et des tutoriels plus complets. De mon côté je vais m'arrêter là. Le prochain cours est sur Bootstrap !"
+    }
+  ]
+}

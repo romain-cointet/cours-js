@@ -59,7 +59,7 @@ export default {
   ],
 
   axios: {
-    baseURL: development ? 'http://localhost:3001' : 'https://cours-js-mjm.netlify.app/'
+    baseURL: development ? 'http://localhost:3000' : 'https://cours-js-mjm.netlify.app/'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

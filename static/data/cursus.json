@@ -72,7 +72,7 @@
       },
       { 
         "value": 1, 
-        "text": "JQuery (bref aperçu)",
+        "text": "JQuery en bref",
         "resume": "La retraite, c'est pour bientôt papy !"
       },
       { 
@@ -82,7 +82,7 @@
       },
       { 
         "value": 3, 
-        "text": "Gsap TweenMax",
+        "text": "-- Gsap TweenMax",
         "resume": "Des animations partout partout !"
       }
     ],
@@ -99,17 +99,17 @@
       },
       { 
         "value": 2, 
-        "text": "Optimisation du code",
+        "text": "-- Optimisation du code",
         "resume": ""
       },
       { 
         "value": 3, 
-        "text": "Aperçu des tests et méthodes de débogage",
+        "text": "-- Aperçu des tests et méthodes de débogage",
         "resume": ""
       },
       { 
         "value": 4, 
-        "text": "La récursivité",
+        "text": "-- La récursivité",
         "resume": ""
       }
     ],
@@ -133,7 +133,7 @@
     [
       { 
         "value": 0, 
-        "text": "Hello Nuxt",
+        "text": "-- Hello Nuxt",
         "resume": ""
       }
     ]
