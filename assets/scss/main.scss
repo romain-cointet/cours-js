@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 @import 'variables.scss';
 @import 'overloads/bootstrap.scss';
 
@@ -45,7 +46,8 @@
 /* Other classes */
 .note, .spoil {
   display: inline-block;
-  font-family: Raleway-Bold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   color: white;
   border-radius: 8px;
   padding: 4px 8px;
@@ -60,20 +62,23 @@
 
 /* Balises */
 h1 {
-  font-family: Raleway-Bold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   font-size: 52px;
   color: $white;
   line-height: 54px;
 }
 
 h2 {
-  font-family: Raleway-Medium;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   color: $white;
 }
 
 h3 {
-  font-family: Raleway-SemiBold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
   font-size: 52px;
   color: $black;
   line-height: 68px;
@@ -81,20 +86,23 @@ h3 {
 }
 
 h4 {
-  font-family: Raleway-ExtraBold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
   font-size: 28px;
   color: $black;
   margin-bottom: 24px;
 }
 
 h5 {
-  font-family: Raleway-ExtraBold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
   font-size: 20px;
   color: $black;
 }
 
 p, li {
-  font-family: Raleway-Regular;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
   font-size: 20px;
   color: $black;
 }
@@ -109,7 +117,8 @@ ul {
 }
 
 b {
-  font-family: Raleway-SemiBold;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
 }
 
 @import 'components/navbar.scss';

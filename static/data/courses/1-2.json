@@ -1,0 +1,79 @@
+{
+  "head": {
+    "chapter": {
+      "id": 1,
+      "value": "Les librairies externes"
+    },
+    "title": "Bootstrap",
+    "resume": "Merci qui ? Merci Twitter !"
+  },
+  "intro": {
+    "left": [
+      {
+        "type": "h3",
+        "value": "Je te présente une des évolutions majeures du web..."
+      },
+      {
+        "type": "h4",
+        "value": "Pour qui son temps est maintenant révolu."
+      },
+      {
+        "type": "p",
+        "value": "JQuery a été une librairie qui a apporté de grands changements dans le développement web et qui a remis au goût du jour un langage qui était réduit à de simples <b>alert();</b>: le Javascript. D'autant plus que tous les navigateurs bloquaient Javascript par défaut pour éviter les floods massifs de popups et de multiples failles d sécurité pour leurs utilisateurs."
+      }
+    ],
+    "right": [
+      {
+        "type": "img",
+        "src": "spam.gif",
+        "alt": "JQuery en bref"
+      }
+    ]
+  },
+  "content": [
+    {
+      "type": "h4",
+      "value": "Bootstrap, c'est quoi ?"
+    },
+    {
+      "type": "h4",
+      "value": "Inclure Bootstrap sur son site"
+    },
+    {
+      "type": "h4",
+      "value": "Le principe de grille"
+    },
+    {
+      "type": "h5",
+      "value": "Les containers"
+    },
+    {
+      "type": "h5",
+      "value": "Les lignes"
+    },
+    {
+      "type": "h5",
+      "value": "Les colonnes"
+    },
+    {
+      "type": "h4",
+      "value": "Le responsive dans Bootstrap"
+    },
+    {
+      "type": "h5",
+      "value": "La grille responsive"
+    },
+    {
+      "type": "h5",
+      "value": "Les autres classes responsive"
+    },
+    {
+      "type": "h4",
+      "value": "Les classes typographiques de Bootstrap"
+    },
+    {
+      "type": "h4",
+      "value": "Les composants de Bootstrap"
+    }
+  ]
+}

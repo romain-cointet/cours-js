@@ -3,7 +3,8 @@
   padding: 82px 0;
 
   p {
-    font-family: Raleway-SemiBold;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
     font-size: 20px;
     color: $white;
     line-height: 28px;
@@ -14,7 +15,8 @@
     padding: 0;
   }
   li, a {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
     font-size: 17px;
     color: $white;
     line-height: 28px;
