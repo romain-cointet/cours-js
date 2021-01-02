@@ -49,7 +49,8 @@ export default {
             {
               "type": "nuxt-link",
               "src": "/0/0",
-              "value": "On commence ?"
+              "value": "On commence ?",
+              "class": "mb-4"
             }
           ],
           "right": [
@@ -73,7 +74,7 @@ export default {
             {
               "type": "a",
               "href": "#intro",
-              "class": "btn btn-primary cta",
+              "class": "btn btn-primary cta mb-4",
               "value": "Revenir au choix du cours"
             }
           ],

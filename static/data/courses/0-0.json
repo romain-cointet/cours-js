@@ -70,7 +70,7 @@
     },
     {
       "type": "h4",
-      "value": "Et comment communiquent-t-ils ?"
+      "value": "Et comment communiquent-ils ?"
     },
     {
       "type": "h5",
@@ -118,7 +118,7 @@
     },
     {
       "type": "ul",
-      "value": "<li>Les langages serveurs reçoivent les requêtes client et leur renvoient des données</li><li>Les langages clients reçoivent les données et les affichent avec style !</li>"
+      "value": "<li>Les langages serveurs reçoivent les requêtes client et leur renvoient des données</li><li>Les langages clients reçoivent les données du serveur et les affichent avec style !</li>"
     },
     {
       "type": "p",
