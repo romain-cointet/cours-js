@@ -5,7 +5,8 @@
       <Hero 
         home 
         :title="content.head.title"
-        :subtitle="content.head.resume" />
+        :subtitle="content.head.resume"
+        :showSearchCourse="true" />
 
       <b-container>
         <Intro :content="content.intro" id="intro"/>

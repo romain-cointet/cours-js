@@ -5,7 +5,8 @@
       <Hero 
         :chapter="course.head.chapter" 
         :title="course.head.title"
-        :subtitle="course.head.resume" />
+        :subtitle="course.head.resume"
+        :showSearchCourse="false"  />
 
       <b-container class="mb-8">
         <Intro :content="course.intro" />

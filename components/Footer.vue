@@ -16,7 +16,7 @@
             <li><a href="tel:+330767523648" target="_blank">Par téléphone</a> <span class="text-primary">(urgences uniquement)</span></li>
           </ul>
         </b-col>
-        <b-col md="4">
+        <b-col md="4" class="mt-4 mt-md-0">
           <p>
             Si je ne répond pas dessuite, c’est parce que j’ai aussi une vie… C’est important tu sais.
           </p>

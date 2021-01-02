@@ -1,7 +1,18 @@
 .comp--hero {
-  height: 90vh;
+  height: auto;
   background: url(~assets/img/hero-bg.jpg) center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   padding-top: 220px;
+
+  &.big {
+    height: 90vh;
+  }
+
+  @media screen and (max-width: $md) {
+    padding-top: 80px;
+    height: auto !important;
+  }
+
+  
 }

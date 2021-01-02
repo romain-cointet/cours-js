@@ -5,17 +5,37 @@
   width: 100%;
   padding: 6px 6px 6px 24px;
 
+  @media screen and (max-width: $md) {
+    border-radius: 24px;
+  }
+
   .grid { 
     height: 100%;
     display: grid;
     grid-template-columns: 20% 30% 45% 5%;
     grid-template-rows: auto;
 
+    @media screen and (max-width: $md) {
+      grid-template-columns: 100%;
+    }
+
     #catch-phrase,
     #chapter,
     #cursus,
     #search-button {
       align-self: center;
+
+      @media screen and (max-width: $md) {
+        padding: 16px 0;
+      }
+    }
+
+    #catch-phrase,
+    #chapter,
+    #cursus {
+      @media screen and (max-width: $md) {
+        border-bottom: 1px solid $border;
+      }
     }
 
     #catch-phrase,
@@ -34,6 +54,11 @@
         z-index: 9999;
       }
       */
+      @media screen and (max-width: $md) {
+        border: none;
+        border-bottom: 1px solid $border;
+      }
+      
     }
 
     #chapter,
@@ -60,6 +85,11 @@
       grid-column: 1;
       height: 100%;
 
+      @media screen and (max-width: $md) {
+        grid-row: 1;
+        grid-column: 1;
+      }
+
       span {
         line-height: 36px;
       }
@@ -67,15 +97,32 @@
 
     #chapter {
       grid-column: 2;
+
+      @media screen and (max-width: $md) {
+        grid-row: 2;
+        grid-column: 1;
+        padding-left: 0;
+      }
     }
 
     #cursus {
       grid-column: 3;
+
+      @media screen and (max-width: $md) {
+        grid-row: 3;
+        grid-column: 1;
+        padding-left: 0;
+      }
     }
 
     #search-button {
       grid-column: 4;
       text-align: right;
+
+      @media screen and (max-width: $md) {
+        grid-row: 4;
+        grid-column: 1;
+      }
 
       button, a {
         display: inline-block;
@@ -88,6 +135,13 @@
         text-align: center;
         text-decoration: none;
         line-height: 32px;
+
+        @media screen and (max-width: $md) {
+          width: 100% !important;
+          height: 50px;
+          line-height: 44px;
+          border-radius: 16px;
+        }
       }
     }
 
@@ -106,7 +160,7 @@
       grid-template-columns: 20% 30% 43% 7%;
 
       @media screen and (max-width: $md) {
-        grid-template-columns: 0% 40% 40% 20%;
+        grid-template-columns: 100%;
       }
     }
 
@@ -128,35 +182,21 @@
     #catch-phrase {
       color: $gray;
 
-      @media screen and (max-width: $md) {
-        grid-row: 1;
-        grid-column: 1;
-      }
-
       span {
         line-height: 46px;
       }
     }
 
     #chapter {
-      @media screen and (max-width: $md) {
-        grid-row: 2;
-        grid-column: 1;
-      }
+      
     }
 
     #cursus {
-      @media screen and (max-width: $md) {
-        grid-row: 3;
-        grid-column: 1;
-      }
+      
     }
 
     #search-button {
-      @media screen and (max-width: $md) {
-        grid-row: 4;
-        grid-column: 1;
-      }
+      
 
       button, a {
         width: 50px;

@@ -1,14 +1,33 @@
 <template>
   <header :class="['comp--navbar', home&&!showSearchCourse?'home':'']">
     <b-row align-v="center" align-h="between" class="height-full">
-      <b-col md="4">
+      <b-col cols="6" md="4">
         <nuxt-link to="/"><img :src="showSearchCourse?require(`~/assets/img/logo-black.svg`):require(`~/assets/img/logo-white.svg`)" alt="MjsM, le Javascript pour MjM"/></nuxt-link>
       </b-col>
 
-      <b-col md="7">
-        <SearchCourse :class="showSearchCourse?'show':''" compName="search-course-NAVABR"/>
+      <b-col cols="3" md="7">
+        <div class="d-none d-md-block">
+          <SearchCourse :class="showSearchCourse?'show':''" compName="search-course-NAVABR"/>
+        </div>
+        <div class="d-block d-md-none text-right">
+          <button class="btn-show-all-courses" @click="showMobileCursusMenu()"><img :src="showSearchCourse?require('~/assets/img/icon-cursus.svg'):require('~/assets/img/icon-cursus-white.svg')" alt="Show all courses"></button>
+        </div>
       </b-col>
     </b-row>
+
+    <div :class="[mobileCursusMenu?'mobile-cursus-menu show':'mobile-cursus-menu']">
+      <b-row>
+        <b-col class="text-right">
+          <span @click="showMobileCursusMenu()">Fermer</span>
+        </b-col>
+      </b-row>
+
+      <b-row class="mt-4">
+        <b-col>
+          <SearchCourse class="show" compName="search-course-NAVABR"/>
+        </b-col>
+      </b-row>
+    </div>
   </header>
 </template>
 
@@ -23,6 +42,7 @@
     data() {
       return {
         showSearchCourse: false,
+        mobileCursusMenu: false
       }
     },
     mounted() {
@@ -42,6 +62,9 @@
         } else {
           this.showSearchCourse = false
         }
+      },
+      showMobileCursusMenu() {
+        this.mobileCursusMenu = !this.mobileCursusMenu;
       }
     }
   }

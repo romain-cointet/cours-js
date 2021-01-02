@@ -1,8 +1,8 @@
 <template>
-  <div class="comp--hero">
+  <div :class="[showSearchCourse?'comp--hero big':'comp--hero']">
     <b-container class="height-full">
       <b-row class="height-full">
-        <b-col md="10" offset-md="1" align-self="start" class="mb-4">
+        <b-col md="10" offset-md="1" align-self="start" :class="[showSearchCourse?'mb-4':'d-none']">
           <SearchCourse big compName="search-course-HERO"/>
         </b-col>
      
@@ -40,6 +40,10 @@
       },
       subtitle: {
         type: String
+      },
+      showSearchCourse: {
+        type: Boolean,
+        default: true
       }
     }
   }
